@@ -63,7 +63,7 @@ public class User {
     @Size(max = 10)
     private String phone;
 
-    private boolean isEnabled;
+    private boolean isEnabled = false;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles" , 
@@ -71,5 +71,4 @@ public class User {
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    
 }
