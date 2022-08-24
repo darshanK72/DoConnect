@@ -1,11 +1,11 @@
 package com.doconnect.doconnectservice.controller;
 
 import java.util.List;
-import java.util.Set;
+
 
 import javax.validation.Valid;
 
-import org.apache.catalina.connector.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.doconnectservice.dto.UserDTO;
-import com.doconnect.doconnectservice.entity.User;
+
 import com.doconnect.doconnectservice.services.UserService;
 
 
@@ -29,7 +29,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity<List<UserDTO>> getAllUsers()
     {
         return ResponseEntity.ok(this.userService.getAllUsers());
