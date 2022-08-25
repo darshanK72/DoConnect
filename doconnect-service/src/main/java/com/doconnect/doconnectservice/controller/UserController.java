@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.doconnectservice.dto.UserDTO;
 
-import com.doconnect.doconnectservice.services.UserService;
+import com.doconnect.doconnectservice.services.UserServiceImpl;
 
 
 @RestController
@@ -27,7 +27,7 @@ import com.doconnect.doconnectservice.services.UserService;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
     @GetMapping("/get")
     public ResponseEntity<List<UserDTO>> getAllUsers()
