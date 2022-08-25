@@ -26,18 +26,18 @@ public class QuestionController {
     QuestionService questionService;
 
     @PostMapping("/addquestion")
-    public ResponseEntity<String> registerQuestion(@Valid @RequestBody QuestionDTO questionDTO)
+    public ResponseEntity<String> addQuestion(@Valid @RequestBody QuestionDTO questionDTO)
     {
-        return ResponseEntity.ok(this.questionService.registerQuestion(questionDTO));
+        return ResponseEntity.ok(this.questionService.addQuestion(questionDTO));
     }
 
-    @GetMapping("/getquestion")
+    @GetMapping("/get")
     public List<Question> getAllQuestions()
     {
         return questionService.getAllQuestions();
     }
 
-    @DeleteMapping("/deletequestion/{question_id}")
+    @DeleteMapping("/{question_id}")
     public void deleteQuestion(@PathVariable Long question_id) {
 		
        questionService.deleteQuestion(question_id);

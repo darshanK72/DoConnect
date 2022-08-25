@@ -12,9 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.doconnect.doconnectservice.dto.UserDTO;
+import com.doconnect.doconnectservice.entity.Answer;
+import com.doconnect.doconnectservice.entity.Question;
 import com.doconnect.doconnectservice.entity.Role;
 import com.doconnect.doconnectservice.entity.User;
 import com.doconnect.doconnectservice.enums.ERoles;
+import com.doconnect.doconnectservice.repository.AnswerRepository;
+import com.doconnect.doconnectservice.repository.QuestionRepository;
 import com.doconnect.doconnectservice.repository.RoleRespository;
 import com.doconnect.doconnectservice.repository.UserRepository;
 
@@ -27,6 +31,18 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     RoleRespository roleRespository;
+
+    @Autowired
+    QuestionRepository questionRepository;
+
+    @Autowired
+    AnswerRepository answerRepository;
+
+    @Autowired
+    QuestionService questionService;
+
+    @Autowired
+    AnswerService answerService;
 
     public List<UserDTO> getAllUsers() {
 
@@ -74,11 +90,6 @@ public class UserServiceImpl implements UserService{
                   .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
               roles.add(adminRole);
               break;
-            
-            // default:
-            //   Role defuserRole = roleRespository.findByRole(ERoles.ROLE_USER)
-            //       .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-            //   roles.add(defuserRole);
             }
           });
         }
@@ -179,8 +190,24 @@ public class UserServiceImpl implements UserService{
     public String deleteUser(Long user_id) {
         User user = this.userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("Error : User is not found"));
         user.setRoles(new HashSet<>());
+        List<Question> questions = this.questionRepository.findAllByUser(user).orElseThrow(() -> new RuntimeException("Error : Question is not found"));
+
+        System.out.println(questions);
+        List<Answer> answers = this.answerRepository.findAllByUser(user).orElseThrow(() -> new RuntimeException("Error : Answer is not found"));
+
+        questions.forEach(this::setQuestionUser);
+        answers.forEach(this::setAnswerUser);
+
         this.userRepository.deleteById(user_id);
         return "User Deleted Successfully";
     }
-    
+
+    private void setQuestionUser(Question question)
+    {
+        this.questionService.deleteQuestion(question.getQuestion_id());
+    }
+    private void setAnswerUser(Answer answer)
+    {
+        this.answerService.deleteAnswer(answer.getAnswer_id());
+    }
 }

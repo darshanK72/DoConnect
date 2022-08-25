@@ -42,14 +42,10 @@ public class Question {
     private boolean isApproved = false;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Answer> answers = new HashSet<>();
-
-
-
-
-    
+    // @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // private Set<Answer> answers = new HashSet<>();
+ 
 }

@@ -31,13 +31,13 @@ public class AnswerController {
      return ResponseEntity.ok(this.answerService.addAnswer(answerDTO));
     }
     
-    @GetMapping("/getanswer")
+    @GetMapping("/get")
     public List<Answer> getAllanswer()
     {
      return answerService.getAllanswer();
     }
     
-     @DeleteMapping("/deleteanswer/{answer_id}")
+     @DeleteMapping("/{answer_id}")
     public void deleteAnswer(@PathVariable Long answer_id) {
 		
        answerService.deleteAnswer(answer_id);
