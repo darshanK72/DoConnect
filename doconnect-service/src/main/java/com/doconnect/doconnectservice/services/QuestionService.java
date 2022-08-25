@@ -1,6 +1,5 @@
 package com.doconnect.doconnectservice.services;
 
-import java.util.HashSet;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -54,7 +53,7 @@ public class QuestionService {
         List<Answer> answers = this.answerRepository.findAllByQuestion(ques).orElseThrow(() -> new RuntimeException("Error : Answer is not found"));
 
         answers.forEach(this::setAnswerUser);
-        
+
         questionrepository.deleteById(question_id);
        return "Question deleted succesfully";
         
