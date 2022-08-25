@@ -1,0 +1,134 @@
+.flex-div
+{
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background:#fff;
+    position: sticky;
+    top:0;
+    z-index: 10;
+}
+
+.nav-right img{
+    width:25px;
+    margin-right: 25px;
+}
+
+.nav-right .user-icon{
+    width:35px;
+    border-radius: 50%;
+    margin-right: 0;
+}
+
+.nav-left .menu-icon{
+    width:22px;
+    margin-right: 25px;
+
+}
+
+.nav-left a{
+    text-decoration: none;
+}
+
+.nav-left .logo{
+    width:50px;
+
+}
+
+.nav-left .name-logo
+{
+    margin-left:10px;
+    width:90px;
+}
+
+.nav-left a{
+    text-decoration: none;
+    color: rgb(255, 72, 0);
+    font-weight: bolder;
+    margin-left: 15px;
+}
+
+.nav-middle .mic-icon{
+    width:16px;
+}
+
+.nav-middle .search-box{
+    border:1px solid #ccc;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 25px;
+}
+
+.nav-middle .search-box input{
+    width:400px;
+    border: 0;
+    background:transparent;
+    outline: 0;
+}
+
+.nav-middle .search-box img{
+    width:15px;
+}
+
+.login, .sign-up{    
+    background-color: transparent;
+    border-color: #0079D3;
+    color: #0079D3;
+    fill: #0079D3;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    margin-right: 20px;
+    opacity: 1;  
+}
+
+.sign-up{
+    background-color: #0079D3;
+    border-color: #0079D3;
+    color: aliceblue;
+}
+
+.sign-up:hover{
+    opacity: 0.6;
+}
+
+@media (max-width:900px) {
+    .menu-icon{
+        display: none;
+    }
+
+    .nav-right img{
+        display: none;
+    }
+
+    .nav-right .user-icon{
+        display: block;
+        width:30px;
+    }
+    
+    .nav-middle .search-box input{
+        width:100px;
+    }
+
+    .nav-middle .mic-icon{
+        display: none;
+    }
+
+    .logo{
+        width: 90px;
+    }
+}

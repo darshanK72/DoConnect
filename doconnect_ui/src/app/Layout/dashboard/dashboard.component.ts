@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  isClickOnAnswer = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleAnswer()
+  {
+    if(this.isClickOnAnswer)
+    {
+      this.isClickOnAnswer = false;
+    } 
+    else
+    {
+      this.isClickOnAnswer = true;
+    }
+  }
+
+  getAnswers()
+  {
+    return this.isClickOnAnswer;
   }
 
 }
