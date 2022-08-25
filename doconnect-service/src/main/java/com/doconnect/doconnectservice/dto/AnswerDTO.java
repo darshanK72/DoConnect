@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AnswerDTO {
- 
+
+ private Long answer_id;
  private String answer;
+ private String username;
  private Long question_id;
- private long user_id;
+ private Long user_id;
 
 
 }
