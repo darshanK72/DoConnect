@@ -21,29 +21,37 @@ import com.doconnect.doconnectservice.services.AnswerService;
 @RestController
 @RequestMapping("/answer")
 public class AnswerController {
- 
- @Autowired
- AnswerService answerService;
 
- @PostMapping("/addanswer")
-    public ResponseEntity<String> addAnswer(@Valid @RequestBody AnswerDTO answerDTO)
-    {
-     return ResponseEntity.ok(this.answerService.addAnswer(answerDTO));
-    }
-    
-    @GetMapping("/get")
-    public List<Answer> getAllanswer()
-    {
-     return answerService.getAllanswer();
-    }
-    
-     @DeleteMapping("/{answer_id}")
-    public void deleteAnswer(@PathVariable Long answer_id) {
-		
-       answerService.deleteAnswer(answer_id);
-       
-	}
+   @Autowired
+   AnswerService answerService;
 
+   @GetMapping("/getall")
+   public ResponseEntity<List<AnswerDTO>> getAllAnswers() {
+      return ResponseEntity.ok(this.answerService.getAllAnswers());
+   }
 
+   @GetMapping("/{answer_id}")
+   public ResponseEntity<AnswerDTO> getAnswer(@PathVariable Long answer_id)
+   {
+      return ResponseEntity.ok(this.answerService.getAnswer(answer_id));
+   }
+
+   @GetMapping("/question/{question_id}")
+   public ResponseEntity<List<AnswerDTO>> getAllAnswersOfQuestion(@PathVariable Long question_id)
+   {
+      return ResponseEntity.ok(this.answerService.getAllAnswersOfQuestion(question_id));
+   }
+
+   @PostMapping("/addanswer")
+   public ResponseEntity<String> addAnswer(@Valid @RequestBody AnswerDTO answerDTO) {
+      return ResponseEntity.ok(this.answerService.addAnswer(answerDTO));
+   }
+
+   @DeleteMapping("/{answer_id}")
+   public void deleteAnswer(@PathVariable Long answer_id) {
+
+      answerService.deleteAnswer(answer_id);
+
+   }
 
 }

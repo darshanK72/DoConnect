@@ -12,11 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QuestionDTO {
     
+    private Long question_id;
     private String question;
     private String description;
     private String topic;
+    private String username;
     private Long user_id;
-    private Set<String> answers;
-
-    
 }

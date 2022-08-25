@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.doconnectservice.dto.QuestionDTO;
-import com.doconnect.doconnectservice.entity.Question;
 import com.doconnect.doconnectservice.services.QuestionService;
 
 @RestController
@@ -25,22 +24,27 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
+    @GetMapping("/getall")
+    public ResponseEntity<List<QuestionDTO>> getAllQuestions()
+    {
+        return ResponseEntity.ok(questionService.getAllQuestions());
+    }
+
+    @GetMapping("/{question_id}")
+    public ResponseEntity<QuestionDTO> getQuestion(@PathVariable Long question_id)
+    {
+        return ResponseEntity.ok(questionService.getQuestion(question_id));
+    }
+
     @PostMapping("/addquestion")
     public ResponseEntity<String> addQuestion(@Valid @RequestBody QuestionDTO questionDTO)
     {
         return ResponseEntity.ok(this.questionService.addQuestion(questionDTO));
     }
 
-    @GetMapping("/get")
-    public List<Question> getAllQuestions()
-    {
-        return questionService.getAllQuestions();
-    }
-
     @DeleteMapping("/{question_id}")
-    public void deleteQuestion(@PathVariable Long question_id) {
-		
-       questionService.deleteQuestion(question_id);
+    public ResponseEntity<String> deleteQuestion(@PathVariable Long question_id) {
+       return ResponseEntity.ok(questionService.deleteQuestion(question_id));
        
 	}
     
