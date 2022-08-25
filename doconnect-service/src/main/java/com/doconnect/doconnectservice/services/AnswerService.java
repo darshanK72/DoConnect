@@ -1,8 +1,6 @@
 package com.doconnect.doconnectservice.services;
 
 import java.util.List;
-
-import javax.print.DocFlavor.STRING;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;

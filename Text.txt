@@ -10,9 +10,10 @@ project started with entities required
 
 
 1) Chat service (going on)
-2) Spring Security
+2) Spring Security (login logout register)
 3) Mail Module (Reg, approval)
 4) Api Gateway and Server
+
 5) Admin dashboard
 6) Question and Answer
 7) Upload Image
