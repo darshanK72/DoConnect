@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.doconnectservice.dto.AnswerDTO;
-import com.doconnect.doconnectservice.entity.Answer;
 import com.doconnect.doconnectservice.services.AnswerService;
 
 @RestController
