@@ -1,6 +1,7 @@
 package com.doconnect.doconnectservice.services;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,6 +46,9 @@ public class UserServiceImpl implements UserService{
     @Autowired
     AnswerServiceImpl answerService;
 
+    @Autowired
+    EmailSenderService emailSenderService;
+
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -57,10 +61,38 @@ public class UserServiceImpl implements UserService{
         
     }
 
+    public List<UserDTO> getAllAdmins()
+    {
+        List<User> userList = this.userRepository.findAll();
+
+        List<UserDTO> adminList = new ArrayList<>();
+
+        userList.forEach(user ->
+        {
+            Set<Role> roles = user.getRoles();
+            roles.forEach(role ->
+            {
+                ERoles r = role.getRole();
+                if(r == ERoles.ROLE_ADMIN)
+                {
+                    adminList.add(this.mapUserToDto(user));
+                }
+            });
+
+        });
+
+
+        return adminList;
+    }
+
     public String registerUser(@Valid UserDTO userDTO) {
 
         User user = mapDtoTOUser(userDTO);
         this.userRepository.save(user);
+
+        String body = "You are Successfylly Registered, To Login in your account go to this link\n" + "http://localhost:4200/login";
+        this.emailSenderService.sendMail(userDTO.getEmail(),body,"Regeristeration is Successful");
+        
         return "User Registered Successfully";
     }
 
