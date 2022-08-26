@@ -39,10 +39,10 @@ public class UserServiceImpl implements UserService{
     AnswerRepository answerRepository;
 
     @Autowired
-    QuestionService questionService;
+    QuestionServiceImpl questionService;
 
     @Autowired
-    AnswerService answerService;
+    AnswerServiceImpl answerService;
 
     public List<UserDTO> getAllUsers() {
 

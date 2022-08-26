@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.doconnectservice.dto.AnswerDTO;
-import com.doconnect.doconnectservice.services.AnswerService;
+import com.doconnect.doconnectservice.services.AnswerServiceImpl;
 
 @RestController
 @RequestMapping("/answer")
 public class AnswerController {
 
    @Autowired
-   AnswerService answerService;
+   AnswerServiceImpl answerService;
 
    @GetMapping("/getall")
    public ResponseEntity<List<AnswerDTO>> getAllAnswers() {
