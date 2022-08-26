@@ -30,6 +30,18 @@ public class QuestionController {
         return ResponseEntity.ok(questionService.getAllQuestions());
     }
 
+    @GetMapping("/approve/{question_id}")
+    public ResponseEntity<String> approveQuestion(@PathVariable Long question_id)
+    {
+        return ResponseEntity.ok(questionService.approveQuestion(question_id));
+    }
+
+    @GetMapping("/getAllApprovedQuestions")
+   public ResponseEntity<List<QuestionDTO>> getAllApprovedQuestions()
+   {
+      return ResponseEntity.ok(questionService.getAllApprovedQuestions());
+   }
+
     @GetMapping("/{question_id}")
     public ResponseEntity<QuestionDTO> getQuestion(@PathVariable Long question_id)
     {
