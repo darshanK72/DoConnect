@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.doconnectservice.dto.QuestionDTO;
-import com.doconnect.doconnectservice.services.QuestionService;
+import com.doconnect.doconnectservice.services.QuestionServiceImpl;
 
 @RestController
 @RequestMapping("/question")
 public class QuestionController {
 
     @Autowired
-    QuestionService questionService;
+    QuestionServiceImpl questionService;
 
     @GetMapping("/getall")
     public ResponseEntity<List<QuestionDTO>> getAllQuestions()

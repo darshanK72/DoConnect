@@ -9,7 +9,7 @@ project started with entities required
 (Impl of service)
 
 
-1) Chat service (going on)
+1) Chat service (almost done)
 2) Spring Security (login logout register)
 3) Mail Module (Reg, approval)
 4) Api Gateway and Server
