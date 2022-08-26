@@ -13,7 +13,8 @@ import { AuthserviceService } from './Service/authservice.service';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AllusersComponent } from './Layout/allusers/allusers.component';
-import { HomeComponent } from './Layout/home/home.component'
+import { HomeComponent } from './Layout/home/home.component';
+import { ChatboxComponent } from './Layout/chatbox/chatbox.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './Layout/home/home.component'
     LogoutComponent,
     RegisterComponent,
     AllusersComponent,
-    HomeComponent
+    HomeComponent,
+    ChatboxComponent
   ],
   imports: [
     BrowserModule,

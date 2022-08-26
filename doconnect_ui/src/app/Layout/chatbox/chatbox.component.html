@@ -1,0 +1,12 @@
+<div>
+    <div class="container" *ngFor="let tempg of greetings">
+     <p>{{tempg.name}} : {{tempg.content}}</p>   
+    </div>
+   </div>
+   <form #loginForm=ngForm>
+    <div>
+     <br>
+     <input type="text" name="newmessage" [(ngModel)]="newmessage">
+     <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
+    </div>
+   </form>

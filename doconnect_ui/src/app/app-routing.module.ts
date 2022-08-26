@@ -4,6 +4,7 @@ import { LoginComponent } from './Auth/login/login.component';
 import { LogoutComponent } from './Auth/logout/logout.component';
 import { RegisterComponent } from './Auth/register/register.component';
 import { AllusersComponent } from './Layout/allusers/allusers.component';
+import { ChatboxComponent } from './Layout/chatbox/chatbox.component';
 import { DashboardComponent } from './Layout/dashboard/dashboard.component';
 import { HomeComponent } from './Layout/home/home.component';
 
@@ -16,6 +17,10 @@ const routes: Routes = [
     path:"",
     redirectTo:"home",
     pathMatch:"full"
+  },
+  {
+    path:"chatbox",
+    component:ChatboxComponent,
   },
   {
     path:"home",
