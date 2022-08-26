@@ -67,6 +67,13 @@ public class QuestionServiceImpl implements QuestionService {
         return adminList;
     }
 
+    public List<QuestionDTO> getAllApprovedQuestions() {
+
+        List<Question> questionList = this.questionrepository.findAllByIsApproved(true).orElseThrow(() -> new RuntimeException("Error: Questions is not found."));
+        return questionList.stream().map(this::mapQuestionToDto).collect(Collectors.toList());
+    
+      }
+
     public String addQuestion(@Valid QuestionDTO questionDTO) {
 
         questionrepository.save(mapDtoToQuestion(questionDTO));
@@ -95,7 +102,15 @@ public class QuestionServiceImpl implements QuestionService {
     public QuestionDTO getQuestion(Long question_id)
     {
         Question question = this.questionrepository.findById(question_id).orElseThrow(() -> new RuntimeException("Error: question is not found."));
+        
         return this.mapQuestionToDto(question);
+    }
+
+    public String approveQuestion(Long question_id) {
+        Question question = this.questionrepository.findById(question_id).orElseThrow(() -> new RuntimeException("Error: question is not found."));
+        question.setApproved(true);
+        this.questionrepository.save(question);
+        return "Question Approved";
     }
 
 
@@ -180,5 +195,7 @@ public class QuestionServiceImpl implements QuestionService {
         return userDTO;
 
     }
+
+    
 
 }

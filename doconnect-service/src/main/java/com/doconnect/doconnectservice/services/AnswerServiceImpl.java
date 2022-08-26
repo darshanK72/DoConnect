@@ -23,7 +23,7 @@ import com.doconnect.doconnectservice.repository.QuestionRepository;
 import com.doconnect.doconnectservice.repository.UserRepository;
 
 @Service
-public class AnswerServiceImpl implements AnswerService{
+public class AnswerServiceImpl implements AnswerService {
 
   @Autowired
   UserRepository userRepository;
@@ -34,7 +34,6 @@ public class AnswerServiceImpl implements AnswerService{
   @Autowired
   AnswerRepository answerRepository;
 
-
   @Autowired
   EmailSenderService emailSenderService;
 
@@ -42,16 +41,15 @@ public class AnswerServiceImpl implements AnswerService{
     answerRepository.save(this.mapDtoToAnswer(answerDTO));
 
     String body = "New Answer is added, Please Review the Answer\n" +
-                    "Question ID : " + answerDTO.getQuestion_id() + "\n" +
-                    "Answer: " + answerDTO.getAnswer();
+        "Question ID : " + answerDTO.getQuestion_id() + "\n" +
+        "Answer: " + answerDTO.getAnswer();
 
     String subject = "Answer Added";
 
-        List<UserDTO> adminList = this.getAllAdmins();
-        adminList.forEach(admin ->
-        {
-            this.emailSenderService.sendMail(admin.getEmail(), body, subject);
-        });
+    List<UserDTO> adminList = this.getAllAdmins();
+    adminList.forEach(admin -> {
+      this.emailSenderService.sendMail(admin.getEmail(), body, subject);
+    });
 
     return "Answer Added Successfully";
   }
@@ -61,22 +59,37 @@ public class AnswerServiceImpl implements AnswerService{
     return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
   }
 
-  public List<AnswerDTO> getAllAnswersOfQuestion(Long question_id)
-  {
-    Question question = this.questionRepository.findById(question_id) .orElseThrow(() -> new RuntimeException("Error : Question is not find"));
-    List<Answer> answerList = this.answerRepository.findAllByQuestion(question).orElseThrow(() -> new RuntimeException("Error : Answers for question not found"));
+  public List<AnswerDTO> getAllAnswersOfQuestion(Long question_id) {
+    Question question = this.questionRepository.findById(question_id)
+        .orElseThrow(() -> new RuntimeException("Error : Question is not find"));
+    List<Answer> answerList = this.answerRepository.findAllByQuestion(question)
+        .orElseThrow(() -> new RuntimeException("Error : Answers for question not found"));
     return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
   }
 
-  public AnswerDTO getAnswer(Long answer_id)
-  {
-    Answer answer = this.answerRepository.findById(answer_id).orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
+  public AnswerDTO getAnswer(Long answer_id) {
+    Answer answer = this.answerRepository.findById(answer_id)
+        .orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
 
     return mapAnswerToDto(answer);
   }
 
-  private Answer mapDtoToAnswer(AnswerDTO answerDTO)
-  {
+  public String approveAnswer(Long answer_id) {
+    Answer answer = this.answerRepository.findById(answer_id)
+        .orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
+    answer.setApproved(true);
+    this.answerRepository.save(answer);
+    return "Answer Approved";
+  }
+
+  public List<AnswerDTO> getAllApprovedAnswer() {
+
+    List<Answer> answerList = this.answerRepository.findAllByIsApproved(true).orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
+    return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
+
+  }
+
+  private Answer mapDtoToAnswer(AnswerDTO answerDTO) {
     Answer answer = new Answer();
     User user = userRepository.findById(answerDTO.getUser_id())
         .orElseThrow(() -> new RuntimeException("Error : User Not Found"));
@@ -114,63 +127,52 @@ public class AnswerServiceImpl implements AnswerService{
 
   }
 
-  public List<UserDTO> getAllAdmins()
-    {
-        List<User> userList = this.userRepository.findAll();
+  public List<UserDTO> getAllAdmins() {
+    List<User> userList = this.userRepository.findAll();
 
-        List<UserDTO> adminList = new ArrayList<>();
+    List<UserDTO> adminList = new ArrayList<>();
 
-        userList.forEach(user ->
-        {
-            Set<Role> roles = user.getRoles();
-            roles.forEach(role ->
-            {
-                ERoles r = role.getRole();
-                if(r == ERoles.ROLE_ADMIN)
-                {
-                    adminList.add(this.mapUserToDto(user));
-                }
-            });
+    userList.forEach(user -> {
+      Set<Role> roles = user.getRoles();
+      roles.forEach(role -> {
+        ERoles r = role.getRole();
+        if (r == ERoles.ROLE_ADMIN) {
+          adminList.add(this.mapUserToDto(user));
+        }
+      });
 
-        });
+    });
 
+    return adminList;
+  }
 
-        return adminList;
-    }
+  private UserDTO mapUserToDto(User user) {
+    UserDTO userDTO = new UserDTO();
 
+    userDTO.setUser_id(user.getUser_id());
+    userDTO.setFirstName(user.getFirstName());
+    userDTO.setLastName(user.getLastName());
+    userDTO.setUsername(user.getUsername());
+    userDTO.setEmail(user.getEmail());
+    userDTO.setPhone(user.getPhone());
+    userDTO.setPassword(user.getPassword());
 
-    private UserDTO mapUserToDto(User user)
-    {
-        UserDTO userDTO = new UserDTO();
+    Set<String> userRoles = new HashSet<>();
 
-        userDTO.setUser_id(user.getUser_id());
-        userDTO.setFirstName(user.getFirstName());
-        userDTO.setLastName(user.getLastName());
-        userDTO.setUsername(user.getUsername());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setPhone(user.getPhone());
-        userDTO.setPassword(user.getPassword());
+    Set<Role> userSet = user.getRoles();
+    userSet.forEach(role -> {
+      ERoles r = role.getRole();
+      if (r == ERoles.ROLE_ADMIN) {
+        userRoles.add("ROLE_ADMIN");
+      } else {
+        userRoles.add("ROLE_USER");
+      }
+    });
 
+    userDTO.setRoles(userRoles);
 
-        Set<String> userRoles = new HashSet<>();
+    return userDTO;
 
-        Set<Role> userSet = user.getRoles();
-        userSet.forEach(role ->{
-            ERoles r = role.getRole();
-            if(r == ERoles.ROLE_ADMIN)
-            {
-                userRoles.add("ROLE_ADMIN");
-            }
-            else
-            {
-                userRoles.add("ROLE_USER");
-            }
-        });
-
-        userDTO.setRoles(userRoles);
-
-        return userDTO;
-
-    }
+  }
 
 }

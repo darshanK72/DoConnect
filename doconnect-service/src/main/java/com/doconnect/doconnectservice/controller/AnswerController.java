@@ -29,6 +29,18 @@ public class AnswerController {
       return ResponseEntity.ok(this.answerService.getAllAnswers());
    }
 
+   @GetMapping("/approve/{answer_id}")
+    public ResponseEntity<String> approveAnswer(@PathVariable Long answer_id)
+    {
+        return ResponseEntity.ok(answerService.approveAnswer(answer_id));
+    }
+
+   @GetMapping("/getAllApprovedAnswers")
+   public ResponseEntity<List<AnswerDTO>> getAllApprovedAnswers()
+   {
+      return ResponseEntity.ok(answerService.getAllApprovedAnswer());
+   }
+
    @GetMapping("/{answer_id}")
    public ResponseEntity<AnswerDTO> getAnswer(@PathVariable Long answer_id)
    {
