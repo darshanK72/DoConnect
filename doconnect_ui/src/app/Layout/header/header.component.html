@@ -12,14 +12,14 @@
     <div class="nav-right flex-div">
         <div *ngIf="isLoggedIn()" class="logg">
             <h3></h3>
-            <a (click)="logout()" class="sign-up">logout</a>
+            <a [routerLink]="'/logout'" class="sign-up">logout</a>
             <img src="assets/images/notification.png">
              <img src="assets/images/Jack.png" class="user-icon">
         </div>
         <div *ngIf="!isLoggedIn()" class="nologg flex-div">
             
-            <a routerLink="/login" class="login">Login</a>
-            <a routerLink="/signup" class="sign-up">Register</a>
+            <a [routerLink]="'/login'" class="login">Login</a>
+            <a [routerLink]="'/register'" class="sign-up">Register</a>
         </div>
     </div>
 </nav>

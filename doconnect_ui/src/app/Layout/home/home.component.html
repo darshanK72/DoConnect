@@ -1,0 +1,36 @@
+<div class="dashboard-container flex-div">
+    <div class="card-left text-center">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptates.</p>
+    </div>
+    <div class="card card-center">
+        <div class="card-header">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><p class="user-header">Asked By</p> <p class="user-name">Darshan Khairnar</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="toggleAnswer()"><p class="answer login">Answers</p></a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body answers" *ngIf="getAnswers()">
+            <div class="card">
+                <div class="card-header nav-item">
+                    <a class="nav-link" href="#"><p class="answer-header">Answered By</p> <p class="answer-name">Darshan Khairnar</p></a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-left">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="card-body question">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card-right text-center">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, magni!</p>
+      </div>
+</div>

@@ -9,6 +9,11 @@ import { DashboardComponent } from './Layout/dashboard/dashboard.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { LogoutComponent } from './Auth/logout/logout.component';
 import { RegisterComponent } from './Auth/register/register.component';
+import { AuthserviceService } from './Service/authservice.service';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { AllusersComponent } from './Layout/allusers/allusers.component';
+import { HomeComponent } from './Layout/home/home.component'
 
 @NgModule({
   declarations: [
@@ -18,13 +23,17 @@ import { RegisterComponent } from './Auth/register/register.component';
     DashboardComponent,
     LoginComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    AllusersComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.doconnect.doconnectservice.dto.UserDTO;
@@ -44,6 +45,10 @@ public class UserServiceImpl implements UserService{
     @Autowired
     AnswerServiceImpl answerService;
 
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public List<UserDTO> getAllUsers() {
 
         List<User> userList = this.userRepository.findAll();
@@ -67,7 +72,7 @@ public class UserServiceImpl implements UserService{
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
         user.setPhone(userDTO.getPhone());
-        user.setPassword(userDTO.getPassword());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
         Set<String> strRoles = userDTO.getRoles();
         Set<Role> roles = new HashSet<>();
@@ -209,5 +214,11 @@ public class UserServiceImpl implements UserService{
     private void setAnswerUser(Answer answer)
     {
         this.answerService.deleteAnswer(answer.getAnswer_id());
+    }
+
+    @Override
+    public UserDTO getUserByUsername(String username) {
+        User user = this.userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("Error : User is not found"));
+        return this.mapUserToDto(user);
     }
 }
