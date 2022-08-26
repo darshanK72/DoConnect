@@ -1,0 +1,18 @@
+.flex-div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 79vh;
+}
+
+.form-container{
+    margin-top: 0px;
+    padding:2%;
+    background-color:white;
+    border-radius: 10px;
+    width:30%;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+    
+   
+}
