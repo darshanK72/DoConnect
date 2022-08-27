@@ -1,11 +1,12 @@
-package com.doconnect.doconnectservice.controller;
+package com.doconnect.chatservice.controller;
+
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.doconnect.doconnectservice.entity.Message;
+import com.doconnect.chatservice.entity.Message;
 
 @Controller
 public class WebSocketChatController {

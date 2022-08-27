@@ -1,4 +1,4 @@
-package com.doconnect.doconnectservice.config;
+package com.doconnect.chatservice.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -13,8 +13,7 @@ public class WebSocketChatConfiguration implements WebSocketMessageBrokerConfigu
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/start");
-        config.setApplicationDestinationPrefixes("/current");
-        
+        config.setApplicationDestinationPrefixes("/current");  
     }
 
     @Override
@@ -25,6 +24,4 @@ public class WebSocketChatConfiguration implements WebSocketMessageBrokerConfigu
         .withSockJS();
 
     }
-    
-    
 }

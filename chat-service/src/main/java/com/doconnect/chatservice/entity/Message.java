@@ -1,4 +1,4 @@
-package com.doconnect.doconnectservice.entity;
+package com.doconnect.chatservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
