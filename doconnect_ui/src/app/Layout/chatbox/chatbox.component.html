@@ -1,12 +1,21 @@
 <div>
-    <div class="container" *ngFor="let tempg of greetings">
-     <p>{{tempg.name}} : {{tempg.content}}</p>   
+    <div class="container d-flex chatbox">
+        <div class="card">
+            <div class="d-flex" *ngFor="let tempg of greetings">
+                <div class="chat">
+                    <span class="text-muted">
+                          {{ tempg.name }} : {{ tempg.content }}
+                    </span>
+                </div>
+            </div>
+            <form #loginForm="ngForm">
+                <div>
+                    <br />
+                    <input type="text" name="newmessage" [(ngModel)]="newmessage" />
+                    <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">
+                        Send
+                    </button>
+                </div>
+            </form>
     </div>
-   </div>
-   <form #loginForm=ngForm>
-    <div>
-     <br>
-     <input type="text" name="newmessage" [(ngModel)]="newmessage">
-     <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
-    </div>
-   </form>
+</div>

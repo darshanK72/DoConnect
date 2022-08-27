@@ -9,5 +9,13 @@
   </head>
   <body>
     <app-root></app-root>
+
+    <script type="text/javascript">
+      window.addEventListener('beforeunload', function (e) {
+        window.localStorage.clear();
+          // e.preventDefault();
+          e.returnValue = '';  
+      });
+  </script>
   </body>
 </html>
