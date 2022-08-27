@@ -1,36 +1,48 @@
-<div class="card card-center">
+<div class="card card-center" *ngFor="let qn of questions">
     <div class="card-header">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <div class="nav-link">
                     <p class="user-header">Asked By</p>
-                    <p class="user-name">Darshan Khairnar</p>
-                </a>
+                    <p class="user-name">{{qn.username}}</p>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="toggleAnswer()">
-                    <p class="answer login">Answers</p>
-                </a>
+                <div class="nav-link" (click)="showAnswer(qn)">
+                    <a class="btn answer login">Answers</a>
+                </div>
             </li>
         </ul>
     </div>
-    <div class="card-body answers" *ngIf="getAnswers()">
-        <div class="card">
-            <div class="card-header nav-item">
-                <a class="nav-link" href="#">
-                    <p class="answer-header">Answered By</p>
-                    <p class="answer-name">Darshan Khairnar</p>
-                </a>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-left">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div *ngIf="isClicked(qn)">
+        <div class="card-body answers" *ngFor="let ans of answers">
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <div class="nav-link d-flex">
+                                <p class="answer-header">Answered By</p>
+                                <p class="answer-name">{{ans.username}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body answer">
+                    <h5 class="card-title text-left">{{ans.answer}}</h5>
+                </div>
             </div>
         </div>
     </div>
     <div class="card-body question">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{qn.question}}</h5>
+        <p class="card-text">{{qn.description}}.</p>
+        <div class="answerqn" *ngIf="yesShowTextbox(qn)">
+            <form #myform="ngForm" (ngSubmit)="addAnswer(myform,qn)">
+                <textarea name="message" [(ngModel)]="message" id="" cols="50" rows="3"></textarea>
+                <input type="file" name="image" [(ngModel)]="image" >
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+        </div>
+        <a class="btn btn-primary" (click)="showTextbox(qn)">Answer Question</a>
     </div>
 </div>

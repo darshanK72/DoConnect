@@ -3,18 +3,22 @@ Created a Github collaboration
 project started with entities required
 
 
-1) User,Question,Answer
-2) User dashboard
-1) Chat service (almost done)
 
-2) Spring Security (login logout register) (almost done)
+1) spring security
+2) Question and Answer holder
+3) Chat service (almost done)
+4) Mail Module (Reg, approval)
+5) 4) Api Gateway and Server(some problems)
 
-3) Mail Module (Reg, approval)
-4) Api Gateway and Server
 
-5) Admin dashboard
-6) Question and Answer
-7) Upload Image
 
-1) User dashboard
+1) Admin dashboard
+
+2) Upload Image
+
+3) User dashboard
+
+4) Search functionality
+
+
     

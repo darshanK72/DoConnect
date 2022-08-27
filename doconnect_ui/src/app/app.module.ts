@@ -15,7 +15,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { AllusersComponent } from './Layout/allusers/allusers.component';
 import { HomeComponent } from './Layout/home/home.component';
 import { ChatboxComponent } from './Layout/chatbox/chatbox.component';
-import { QuestionHolderComponent } from './Layout/question-holder/question-holder.component'
+import { QuestionHolderComponent } from './Layout/question-holder/question-holder.component';
+import { AskQuestionComponent } from './Layout/ask-question/ask-question.component'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,16 @@ import { QuestionHolderComponent } from './Layout/question-holder/question-holde
     AllusersComponent,
     HomeComponent,
     ChatboxComponent,
-    QuestionHolderComponent
+    QuestionHolderComponent,
+    AskQuestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthserviceService],
   bootstrap: [AppComponent]

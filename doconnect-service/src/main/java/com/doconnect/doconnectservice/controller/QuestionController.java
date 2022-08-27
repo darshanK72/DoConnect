@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.doconnect.doconnectservice.dto.AnswerDTO;
 import com.doconnect.doconnectservice.dto.QuestionDTO;
 import com.doconnect.doconnectservice.services.QuestionServiceImpl;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/question")
 public class QuestionController {
 
@@ -40,6 +43,12 @@ public class QuestionController {
    public ResponseEntity<List<QuestionDTO>> getAllApprovedQuestions()
    {
       return ResponseEntity.ok(questionService.getAllApprovedQuestions());
+   }
+
+   @GetMapping("/getAllApprovedAnswersOfQuestions/{question_id}")
+   public ResponseEntity<List<AnswerDTO>> getAllApprovedAnswersOfQuestions(@PathVariable Long question_id)
+   {
+    return ResponseEntity.ok(questionService.getAllApprovedAnswerOfQuestion(question_id));
    }
 
     @GetMapping("/{question_id}")

@@ -1,9 +1,11 @@
 app-question-holder
 {
     width: 70%;
+    padding: 20px 10px 20px 20px;
 }
 
-app-chatbox
+app-ask-question
 {
     width: 30%;
+    padding: 20px 20px 20px 10px;
 }
