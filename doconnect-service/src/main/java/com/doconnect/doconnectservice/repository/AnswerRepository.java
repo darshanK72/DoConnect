@@ -17,4 +17,5 @@ public interface AnswerRepository extends JpaRepository<Answer, Long>{
     Optional<List<Answer>> findAllByUser(User user);
     Optional<List<Answer>> findAllByQuestion(Question question);
     Optional<List<Answer>> findAllByIsApproved(boolean value);
+    Optional<List<Answer>> findAllByIsApprovedAndQuestion(boolean value,Question question);
 }

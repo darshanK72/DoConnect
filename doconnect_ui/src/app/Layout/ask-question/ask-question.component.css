@@ -1,0 +1,15 @@
+.ask-container{
+    width:100%;
+}
+
+form{
+    padding: 20px;
+}
+
+label{
+    margin-top: 10px;
+}
+
+.btn{
+    margin-top: 10px;
+}

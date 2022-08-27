@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.doconnect.doconnectservice.dto.AnswerDTO;
 import com.doconnect.doconnectservice.dto.QuestionDTO;
 import com.doconnect.doconnectservice.dto.UserDTO;
 import com.doconnect.doconnectservice.entity.Answer;
@@ -73,6 +74,31 @@ public class QuestionServiceImpl implements QuestionService {
         return questionList.stream().map(this::mapQuestionToDto).collect(Collectors.toList());
     
       }
+
+    public List<AnswerDTO> getAllApprovedAnswerOfQuestion(Long question_id)
+    {
+        Question question = this.questionrepository.findById(question_id).orElseThrow(() -> new RuntimeException("Error: question is not found."));
+        // List<Answer> answerList = this.answerRepository.findAllByQuestion(question).orElseThrow(() -> new RuntimeException("Error : Answers is not found"));
+
+        List<Answer> answerList = this.answerRepository.findAllByIsApprovedAndQuestion(true, question).orElseThrow(() -> new RuntimeException("Error : Answers is not found"));
+
+        return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
+    }
+
+    private AnswerDTO mapAnswerToDto(Answer answer) {
+
+        AnswerDTO answerDTO = new AnswerDTO();
+        answerDTO.setAnswer_id(answer.getAnswer_id());
+        answerDTO.setAnswer(answer.getAnswer());
+        answerDTO.setUsername(answer.getUser().getUsername());
+        answerDTO.setQuestion_id(answer.getQuestion().getQuestion_id());
+        answerDTO.setUser_id(answer.getUser().getUser_id());
+    
+        return answerDTO;
+    
+      }
+
+
 
     public String addQuestion(@Valid QuestionDTO questionDTO) {
 

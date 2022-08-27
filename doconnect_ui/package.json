@@ -20,6 +20,7 @@
     "@angular/router": "^14.1.0",
     "bootstrap": "^5.2.0",
     "net": "^1.0.2",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~7.5.0",
     "sockjs-client": "^1.6.1",
     "stompjs": "^2.3.3",

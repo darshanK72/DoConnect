@@ -59,7 +59,7 @@
 
 .nav-item .answer-header{
     color: #356991;
-    font-size: 15px;
+    font-size: 17px;
     margin-bottom: 0px;
 }
 
@@ -67,7 +67,11 @@
     color: #0079D3;
     font-weight: 800;
     font-size:17px;
-    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+.card-title{
+    margin-bottom: 0;
 }
 
 .scroll {
@@ -82,8 +86,20 @@
     text-align:justify; */
 }
 
+.card-body .answer
+{
+    padding: 10px 20px 10px 20px;
+}
+
 .card-center{
 width: 100%;
+margin: 0;
+margin-bottom: 20px;
+box-sizing: content-box;
+}
+
+textarea{
+    width:80%;
 }
 
 
