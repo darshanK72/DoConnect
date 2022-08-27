@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AllusersComponent } from './Layout/allusers/allusers.component';
 import { HomeComponent } from './Layout/home/home.component';
-import { ChatboxComponent } from './Layout/chatbox/chatbox.component'
+import { ChatboxComponent } from './Layout/chatbox/chatbox.component';
+import { QuestionHolderComponent } from './Layout/question-holder/question-holder.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ChatboxComponent } from './Layout/chatbox/chatbox.component'
     RegisterComponent,
     AllusersComponent,
     HomeComponent,
-    ChatboxComponent
+    ChatboxComponent,
+    QuestionHolderComponent
   ],
   imports: [
     BrowserModule,
