@@ -5,16 +5,11 @@ import { LogoutComponent } from './Auth/logout/logout.component';
 import { RegisterComponent } from './Auth/register/register.component';
 import { UpdateUserComponent } from './Auth/update-user/update-user.component';
 import { AdminDashboardComponent } from './Layout/admin-dashboard/admin-dashboard.component';
-import { AllusersComponent } from './Layout/allusers/allusers.component';
 import { ChatboxComponent } from './Layout/chatbox/chatbox.component';
-import { DashboardComponent } from './Layout/dashboard/dashboard.component';
 import { HomeComponent } from './Layout/home/home.component';
+import { ProfileComponent } from './Layout/profile/profile.component';
 
 const routes: Routes = [
-  {
-    path: 'dash',
-    component: DashboardComponent,
-  },
   {
     path:"",
     redirectTo:"home",
@@ -35,9 +30,6 @@ const routes: Routes = [
     path:"logout",component:LogoutComponent
   },
   {
-    path:"allusers",component:AllusersComponent
-  },
-  {
     path:"register",component:RegisterComponent
   },
   {
@@ -47,6 +39,10 @@ const routes: Routes = [
   {
     path:"update_user",
     component:UpdateUserComponent
+  },
+  {
+    path:"profile",
+    component:ProfileComponent
   }
 ];
 

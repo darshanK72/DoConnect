@@ -12,5 +12,6 @@ public interface QuestionService {
     public List<QuestionDTO> getAllQuestions();
     public QuestionDTO getQuestion(Long question_id);
     public String deleteQuestion(Long question_id);
+    public List<QuestionDTO> getAllQuestionsOfUser(Long user_id);
     
 }

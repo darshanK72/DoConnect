@@ -13,4 +13,5 @@ public interface AnswerService {
     public List<AnswerDTO> getAllAnswersOfQuestion(Long question_id);
     public AnswerDTO getAnswer(Long answer_id);
     public String deleteAnswer(Long answer_id);
+    public List<AnswerDTO> getAllAnswersOfUser(Long user_id);
 }

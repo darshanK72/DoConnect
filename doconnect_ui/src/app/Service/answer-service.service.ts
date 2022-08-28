@@ -16,6 +16,14 @@ export class AnswerServiceService {
     return this.http.get('http://localhost:8585/doconnect/question/getAllApprovedAnswersOfQuestions/' + question.question_id, {responseType: 'json'});
   }
 
+  getAnswersOfUser(username:any,password:any,user_id:number)
+  {
+    const headers = new HttpHeaders({
+        Authorization: 'Basic ' + btoa(username + ':' + password),
+      });
+      return this.http.get('http://localhost:8081/doconnect/answer/user/' + user_id, {headers,responseType: 'json'});
+  }
+
   addAnswer(ansObj:any)
   {
     const username = window.localStorage.getItem("username");

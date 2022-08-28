@@ -31,7 +31,7 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    @GetMapping("/get")
+    @GetMapping("/getall")
     public ResponseEntity<List<UserDTO>> getAllUsers()
     {
         return ResponseEntity.ok(this.userService.getAllUsers());

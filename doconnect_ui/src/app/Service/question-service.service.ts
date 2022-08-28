@@ -15,6 +15,14 @@ export class QuestionServiceService {
     return this.http.get('http://localhost:8585/doconnect/question/getAllApprovedQuestions', {responseType: 'json'});
   }
 
+  getQuestionsOfUser(username:any,password:any,user_id:number)
+  {
+    const headers = new HttpHeaders({
+        Authorization: 'Basic ' + btoa(username + ':' + password),
+      });
+      return this.http.get('http://localhost:8081/doconnect/question/user/' + user_id, {headers,responseType: 'json'});
+  }
+
   addQuestion(qnObj:any)
   {
     const username = window.localStorage.getItem("username");

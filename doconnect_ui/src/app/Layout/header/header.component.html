@@ -9,15 +9,16 @@
             <img src="assets/images/search.png">
         </div>
     </div>
-    <div class="nav-right flex-div">
-        <div *ngIf="isLoggedIn()" class="logg">
+    <div class="nav-right">
+        <div *ngIf="isLoggedIn()" class="logg d-flex">
             <h3></h3>
             <a [routerLink]="'/logout'" class="sign-up">logout</a>
-            <img src="assets/images/notification.png">
-             <img src="assets/images/Jack.png" [routerLink]="returnDash()" class="user-icon">
+            <a [routerLink]="'/profile'" class="sign-up">Profile </a>
+            <a *ngIf="isAdmin()" class="sign-up" [routerLink]="'/admin_dashboard'">Dashboard</a>
+            <a class="username">{{getUser()}}</a>
         </div>
         <div *ngIf="!isLoggedIn()" class="nologg flex-div">
-            
+
             <a [routerLink]="'/login'" class="login">Login</a>
             <a [routerLink]="'/register'" class="sign-up">Register</a>
         </div>

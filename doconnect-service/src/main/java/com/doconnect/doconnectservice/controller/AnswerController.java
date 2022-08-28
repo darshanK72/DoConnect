@@ -55,6 +55,12 @@ public class AnswerController {
       return ResponseEntity.ok(this.answerService.getAllAnswersOfQuestion(question_id));
    }
 
+   @GetMapping("/user/{user_id}")
+    public ResponseEntity<List<AnswerDTO>> getAllAnswersOfUser(@PathVariable Long user_id)
+    {
+        return ResponseEntity.ok(answerService.getAllAnswersOfUser(user_id));
+    }
+
    @PostMapping("/addanswer")
    public ResponseEntity<String> addAnswer(@Valid @RequestBody AnswerDTO answerDTO) {
       return ResponseEntity.ok(this.answerService.addAnswer(answerDTO));
