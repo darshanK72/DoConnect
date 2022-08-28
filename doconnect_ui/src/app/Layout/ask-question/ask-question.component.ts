@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { QuestionServiceService } from 'src/app/Service/question-service.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AskQuestionComponent implements OnInit {
   description!:string;
   topic!:string;
 
-  constructor(private questionService:QuestionServiceService) { }
+  constructor(private questionService:QuestionServiceService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +29,9 @@ export class AskQuestionComponent implements OnInit {
     }
     this.questionService.addQuestion(qnObj).subscribe(data =>
       {
-        console.log(data);
+        this.toastr.success(data);
+      },error =>{
+        this.toastr.error("You are Not Logged In");
       })
 
       myform.reset();

@@ -30,7 +30,7 @@ export class AuthserviceService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get('http://localhost:8081/doconnect/user/get', {
+    return this.http.get('http://localhost:8081/doconnect/user/getall', {
       headers,
       responseType: 'json',
     });

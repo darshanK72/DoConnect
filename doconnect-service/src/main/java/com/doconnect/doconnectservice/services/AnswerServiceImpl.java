@@ -74,6 +74,17 @@ public class AnswerServiceImpl implements AnswerService {
     return mapAnswerToDto(answer);
   }
 
+
+  public List<AnswerDTO> getAllAnswersOfUser(Long user_id)
+    {
+        User user = this.userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("Error : User is not found"));
+        List<Answer> answerList = answerRepository.findAllByUser(user).orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
+        return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
+    }
+
+
+  
+
   public String approveAnswer(Long answer_id) {
     Answer answer = this.answerRepository.findById(answer_id)
         .orElseThrow(() -> new RuntimeException("Error: Answer is not found."));

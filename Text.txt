@@ -8,17 +8,18 @@ project started with entities required
 2) Question and Answer holder
 3) Chat service (almost done)
 4) Mail Module (Reg, approval)
-5) 4) Api Gateway and Server(some problems)
+5) Admin dashboard
+6) User Profile
 
 
 
-1) Admin dashboard
+1) Chat service (css)
 
-2) Upload Image
+2) Upload Image (remain)
 
-3) User dashboard
+3) Search functionality
 
-4) Search functionality
+4) Api Gateway
 
 
     

@@ -37,6 +37,25 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  isAdmin()
+  {
+    const role = window.localStorage.getItem("roles");
+    if(role == "ROLE_USER,ROLE_ADMIN")
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+
+  }
+
+  getUser()
+  {
+    return window.localStorage.getItem("username");
+  }
+
 
 
 }

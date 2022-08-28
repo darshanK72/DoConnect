@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthserviceService } from 'src/app/Service/authservice.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   message:any;
   
 
-  constructor(private authService:AuthserviceService,private router:Router) { }
+  constructor(private authService:AuthserviceService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,11 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("user_id",this.message.user_id);
         window.localStorage.setItem("roles",this.message.roles);
 
+        this.toastr.success("Login Successful!!");
+
         this.router.navigate(["/home"]);
+      },error => {
+        this.toastr.error("Some Error Occured!!!");
       })
 
   }

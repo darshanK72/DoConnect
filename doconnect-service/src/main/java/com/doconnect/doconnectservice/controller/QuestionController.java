@@ -57,6 +57,12 @@ public class QuestionController {
         return ResponseEntity.ok(questionService.getQuestion(question_id));
     }
 
+    @GetMapping("/user/{user_id}")
+    public ResponseEntity<List<QuestionDTO>> getAllQuestionsOfUser(@PathVariable Long user_id)
+    {
+        return ResponseEntity.ok(questionService.getAllQuestionsOfUser(user_id));
+    }
+
     @PostMapping("/addquestion")
     public ResponseEntity<String> addQuestion(@Valid @RequestBody QuestionDTO questionDTO)
     {

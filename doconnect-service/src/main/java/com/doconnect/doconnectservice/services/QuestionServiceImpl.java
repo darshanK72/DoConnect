@@ -125,6 +125,13 @@ public class QuestionServiceImpl implements QuestionService {
         return questionList.stream().map(this::mapQuestionToDto).collect(Collectors.toList());
     }
 
+    public List<QuestionDTO> getAllQuestionsOfUser(Long user_id)
+    {
+        User user = this.userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("Error : User is not found"));
+        List<Question> questionList = questionrepository.findAllByUser(user).orElseThrow(() -> new RuntimeException("Error: question is not found."));
+        return questionList.stream().map(this::mapQuestionToDto).collect(Collectors.toList());
+    }
+
     public QuestionDTO getQuestion(Long question_id)
     {
         Question question = this.questionrepository.findById(question_id).orElseThrow(() -> new RuntimeException("Error: question is not found."));

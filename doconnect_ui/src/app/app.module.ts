@@ -5,40 +5,37 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { FooterComponent } from './Layout/footer/footer.component';
-import { DashboardComponent } from './Layout/dashboard/dashboard.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { LogoutComponent } from './Auth/logout/logout.component';
 import { RegisterComponent } from './Auth/register/register.component';
 import { AuthserviceService } from './Service/authservice.service';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { AllusersComponent } from './Layout/allusers/allusers.component';
 import { HomeComponent } from './Layout/home/home.component';
 import { ChatboxComponent } from './Layout/chatbox/chatbox.component';
 import { QuestionHolderComponent } from './Layout/question-holder/question-holder.component';
 import { AskQuestionComponent } from './Layout/ask-question/ask-question.component'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
-import { UserDashboardComponent } from './Layout/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './Layout/admin-dashboard/admin-dashboard.component';
 import { UpdateUserComponent } from './Auth/update-user/update-user.component';
+import { ProfileComponent } from './Layout/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DashboardComponent,
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    AllusersComponent,
     HomeComponent,
     ChatboxComponent,
     QuestionHolderComponent,
     AskQuestionComponent,
     AdminDashboardComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
