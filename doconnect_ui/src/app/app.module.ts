@@ -19,6 +19,9 @@ import { QuestionHolderComponent } from './Layout/question-holder/question-holde
 import { AskQuestionComponent } from './Layout/ask-question/ask-question.component'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
+import { UserDashboardComponent } from './Layout/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './Layout/admin-dashboard/admin-dashboard.component';
+import { UpdateUserComponent } from './Auth/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     ChatboxComponent,
     QuestionHolderComponent,
-    AskQuestionComponent
+    AskQuestionComponent,
+    AdminDashboardComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

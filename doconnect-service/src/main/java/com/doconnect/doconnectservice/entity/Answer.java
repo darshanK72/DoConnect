@@ -29,7 +29,7 @@ public class Answer {
     @NotBlank
     private String answer;
 
-    private boolean isApproved = false;
+    private boolean isApproved;
 
 
     @OneToOne(cascade = CascadeType.ALL)

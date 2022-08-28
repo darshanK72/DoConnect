@@ -148,6 +148,7 @@ public class QuestionServiceImpl implements QuestionService {
         questionDTO.setTopic(question.getTopic());
         questionDTO.setUsername(question.getUser().getUsername());
         questionDTO.setUser_id(question.getUser().getUser_id());
+        questionDTO.setApprove(question.isApproved());
 
         return questionDTO;
 
@@ -158,6 +159,7 @@ public class QuestionServiceImpl implements QuestionService {
         question.setQuestion(questionDTO.getQuestion());
         question.setDescription(questionDTO.getDescription());
         question.setTopic(questionDTO.getTopic());
+        question.setApproved(questionDTO.isApprove());
 
         User user = userRepository.findById(questionDTO.getUser_id())
                 .orElseThrow(() -> new RuntimeException("Error: user is not found."));

@@ -1,1 +1,52 @@
-<p>admin-dashboard works!</p>
+<div class="dashcontainer d-flex">
+    <div class="container">
+        <button class="btn btn-primary btn-block top" (click)="getUsers()">Show All Users</button> <br>
+        <button class="btn btn-primary btn-block top" (click)="getQuestions()">Show All Questions</button> <br>
+        <button class="btn btn-primary btn-block top" (click)="getAnswers()">Show All Answers</button>
+    </div>
+    <div class="users" *ngIf="isClickedOnUsers">
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex" *ngFor="let user of userList">
+                <div class=" me-auto">
+                    <div class="fw-bold"> {{user.username}}</div>
+                    {{user.firstName}} {{user.lastName}} <br>
+                    {{user.email}} <br>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-success" (click)="deleteUser(user)">Delete</button>
+                    <button class="btn btn-success" (click)="updateUser(user)">Update</button>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="users" *ngIf="isClickedOnQuestions">
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex" *ngFor="let question of questionList">
+                <div class=" me-auto">
+                    <div class="fw-bold"> {{question.username}}</div>
+                    {{question.question}} <br>
+                    {{question.descriptionl}} <br>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-success" (click)="deleteQuestion(question)">Delete</button>
+                    <button class="btn btn-success" [disabled]="isApprovedQuestoin(question)" (click)="approveQuestion(question)">Approve</button>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="users" *ngIf="isClickedOnAnswers">
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex" *ngFor="let answer of answerList">
+                <div class=" me-auto">
+                    <div class="fw-bold"> {{answer.username}}</div>
+                    {{answer.question_id}} <br>
+                    {{answer.answer}} <br>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-success" (click)="deleteAnswer(answer)">Delete</button>
+                    <button class="btn btn-success"  [disabled]="isApprovedAnswer(answer)"(click)="approveAnswer(answer)">Approve</button>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>

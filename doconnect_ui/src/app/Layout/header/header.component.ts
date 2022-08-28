@@ -24,4 +24,19 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  returnDash()
+  {
+    const role = window.localStorage.getItem("roles");
+    if(role == "ROLE_USER,ROLE_ADMIN")
+    {
+      return "/admin_dashboard";
+    }
+    else
+    {
+      return "/user_dashboard";
+    }
+  }
+
+
+
 }

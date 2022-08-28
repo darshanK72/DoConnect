@@ -1,5 +1,7 @@
 package com.doconnect.doconnectservice.dto;
 
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +20,5 @@ public class LoginResponse {
     private String lastName;
     private String email;
     private String phone;
+    private Set<String> roles;
 }

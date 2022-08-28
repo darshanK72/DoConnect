@@ -25,7 +25,7 @@ import com.doconnect.doconnectservice.services.UserServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/user")
+@RequestMapping("/doconnect/user")
 public class UserController {
 
     @Autowired
