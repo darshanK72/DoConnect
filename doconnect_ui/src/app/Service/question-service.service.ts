@@ -15,6 +15,12 @@ export class QuestionServiceService {
     return this.http.get('http://localhost:8585/doconnect/question/getAllApprovedQuestions', {responseType: 'json'});
   }
 
+  getAllQueryQuestions(query:any)
+  {
+    return this.http.get('http://localhost:8585/doconnect/question/getAllQuestionByQuery/'+query, {responseType: 'json'});
+
+  }
+
   getQuestionsOfUser(username:any,password:any,user_id:number)
   {
     const headers = new HttpHeaders({

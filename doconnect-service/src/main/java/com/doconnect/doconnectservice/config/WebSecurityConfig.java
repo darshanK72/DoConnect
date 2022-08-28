@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http.cors().and().csrf().disable()
             .authorizeRequests()
             .antMatchers("/doconnect/question/getAllApprovedAnswersOfQuestions/**").permitAll()
+            .antMatchers("/doconnect/question/getAllQuestionByQuery/**").permitAll()
             .antMatchers("/doconnect/question/getAllApprovedQuestions").permitAll()
             // .antMatchers("/question/getAllApprovedAnswersOfQuestions").permitAll()
             .antMatchers("/doconnect/answer/getall").permitAll()

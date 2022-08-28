@@ -125,6 +125,12 @@ public class QuestionServiceImpl implements QuestionService {
         return questionList.stream().map(this::mapQuestionToDto).collect(Collectors.toList());
     }
 
+    public List<QuestionDTO> getAllQuestionsByQuery(String query)
+    {
+        List<Question> questionsList = questionrepository.findByDescriptionContainingIgnoreCase(query).orElseThrow(() -> new RuntimeException("Error: question is not found."));
+        return questionsList.stream().map(this::mapQuestionToDto).collect(Collectors.toList());
+    }
+
     public List<QuestionDTO> getAllQuestionsOfUser(Long user_id)
     {
         User user = this.userRepository.findById(user_id).orElseThrow(() -> new RuntimeException("Error : User is not found"));

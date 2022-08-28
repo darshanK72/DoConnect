@@ -12,7 +12,7 @@ import { QuestionServiceService } from 'src/app/Service/question-service.service
 })
 export class AdminDashboardComponent implements OnInit {
 
-  isClickedOnUsers = false;
+  isClickedOnUsers = true;
   isClickedOnQuestions = false;
   isClickedOnAnswers = false;
   userList:any;
@@ -21,6 +21,9 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private authService:AuthserviceService,private questionService:QuestionServiceService,private answerService:AnswerServiceService,private toastr:ToastrService,private router:Router) { }
 
   ngOnInit(): void {
+    console.log(
+      "created"
+    )
   }
   getUsers()
   {
@@ -41,6 +44,7 @@ export class AdminDashboardComponent implements OnInit {
     const password = window.localStorage.getItem("password");
     this.authService.deleteUser(username,password,user).subscribe(data =>
       {
+        this.router.navigate(['/admin_dashboard']);
         this.toastr.success(data);
       })
   }
@@ -67,7 +71,6 @@ export class AdminDashboardComponent implements OnInit {
     this.authService.getAllQuestions(username,password).subscribe(data =>
       {
         this.questionList = data;
-        console.log(data);
       })
 
   }
@@ -79,6 +82,7 @@ export class AdminDashboardComponent implements OnInit {
     this.questionService.deleteQuestion(username,password,question).subscribe(data =>
       {
         this.toastr.success(data);
+        this.ngOnInit();
       })
   }
 
@@ -89,6 +93,7 @@ export class AdminDashboardComponent implements OnInit {
     this.questionService.approveQuestion(username,password,question).subscribe(data =>
       {
         this.toastr.success(data);
+        this.ngOnInit();
       })
   }
 
@@ -99,6 +104,7 @@ export class AdminDashboardComponent implements OnInit {
     const password = window.localStorage.getItem("password");
     this.answerService.deleteAnswer(username,password,answer).subscribe(data =>
       {
+        this.ngOnInit();
         this.toastr.success(data);
       });
   }
@@ -109,6 +115,7 @@ export class AdminDashboardComponent implements OnInit {
     const password = window.localStorage.getItem("password");
     this.answerService.approveAnswer(username,password,answer).subscribe(data =>
       {
+        this.ngOnInit();
         this.toastr.success(data);
       })
 
@@ -123,7 +130,6 @@ export class AdminDashboardComponent implements OnInit {
     this.authService.getAllAnswers(username,password).subscribe(data =>
       {
         this.answerList = data;
-        console.log(data);
       })
   }
 
