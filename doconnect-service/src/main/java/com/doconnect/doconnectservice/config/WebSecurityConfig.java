@@ -29,14 +29,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
             .authorizeRequests()
-            .antMatchers("/question/getAllApprovedAnswersOfQuestions/**").permitAll()
-            .antMatchers("/question/getAllApprovedQuestions").permitAll()
+            .antMatchers("/doconnect/question/getAllApprovedAnswersOfQuestions/**").permitAll()
+            .antMatchers("/doconnect/question/getAllApprovedQuestions").permitAll()
             // .antMatchers("/question/getAllApprovedAnswersOfQuestions").permitAll()
-            .antMatchers("/answer/getall").permitAll()
-            .antMatchers("/user/register").permitAll()
+            .antMatchers("/doconnect/answer/getall").permitAll()
+            .antMatchers("/doconnect/user/register").permitAll()
+            .antMatchers("/doconnect/login").permitAll()
             // .antMatchers("/testchat/**").permitAll()
             // .antMatchers("/login").permitAll()
-            .antMatchers("/user/get").hasRole("ADMIN")
+            .antMatchers("/doconnect/user/get").hasRole("ADMIN")
             .anyRequest().authenticated().and().httpBasic();
     }
 

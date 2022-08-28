@@ -13,5 +13,6 @@ public class QuestionDTO {
     private String description;
     private String topic;
     private String username;
+    private boolean approve;
     private Long user_id;
 }

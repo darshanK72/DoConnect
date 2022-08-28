@@ -184,7 +184,7 @@ public class UserServiceImpl implements UserService{
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
         user.setPhone(userDTO.getPhone());
-        user.setPassword(userDTO.getPassword());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
         Set<String> strRoles = userDTO.getRoles();
         Set<Role> roles = new HashSet<>();
@@ -219,6 +219,13 @@ public class UserServiceImpl implements UserService{
           user.setRoles(roles);
 
         this.userRepository.save(user);
+
+        String body = "Your profile is Updated by Admin " + "\n" +
+        "Your details are as below," + "\n" + 
+        "Username  : " + userDTO.getUsername() +  "\n" + 
+        "Password : " + userDTO.getPassword();
+
+        this.emailSenderService.sendMail(userDTO.getEmail(),body,"Your Profile is Updated");
         
         return "User Updated Successfully";
         

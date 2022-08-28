@@ -13,6 +13,7 @@ public class AnswerDTO {
  private String username;
  private Long question_id;
  private Long user_id;
+ private boolean approve;
 
 
 }

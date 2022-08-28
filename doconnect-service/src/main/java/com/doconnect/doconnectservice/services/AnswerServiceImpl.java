@@ -100,6 +100,7 @@ public class AnswerServiceImpl implements AnswerService {
     answer.setAnswer(answerDTO.getAnswer());
     answer.setUser(user);
     answer.setQuestion(question);
+    answer.setApproved(answerDTO.isApprove());
 
     return answer;
   }
@@ -112,6 +113,7 @@ public class AnswerServiceImpl implements AnswerService {
     answerDTO.setUsername(answer.getUser().getUsername());
     answerDTO.setQuestion_id(answer.getQuestion().getQuestion_id());
     answerDTO.setUser_id(answer.getUser().getUser_id());
+    answerDTO.setApprove(answer.isApproved());
 
     return answerDTO;
 

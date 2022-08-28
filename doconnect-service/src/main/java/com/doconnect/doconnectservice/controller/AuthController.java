@@ -23,7 +23,7 @@ public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @PostMapping("/login")
+    @PostMapping("/doconnect/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest)
     {
         UserDTO userDTO = this.userService.getUserByUsername(loginRequest.getUsername());
@@ -39,6 +39,7 @@ public class AuthController {
             loginResponse.setEmail(userDTO.getEmail());
             loginResponse.setPhone(userDTO.getPhone());
             loginResponse.setPassword(userDTO.getPassword());
+            loginResponse.setRoles(userDTO.getRoles());
 
             return ResponseEntity.ok(loginResponse);
         }

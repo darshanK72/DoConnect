@@ -29,12 +29,13 @@ export class LoginComponent implements OnInit {
         this.message = data;
         console.log(this.message);
         window.localStorage.setItem("username",this.message.username);
-        window.localStorage.setItem("firstName",this.message.firstNname);
+        window.localStorage.setItem("firstName",this.message.firstName);
         window.localStorage.setItem("lastName",this.message.lastName);
         window.localStorage.setItem("password",password);
         window.localStorage.setItem("email",this.message.email);
         window.localStorage.setItem("phone",this.message.phone);
         window.localStorage.setItem("user_id",this.message.user_id);
+        window.localStorage.setItem("roles",this.message.roles);
 
         this.router.navigate(["/home"]);
       })

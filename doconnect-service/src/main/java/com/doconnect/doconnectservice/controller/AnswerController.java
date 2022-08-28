@@ -20,7 +20,7 @@ import com.doconnect.doconnectservice.services.AnswerServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/answer")
+@RequestMapping("/doconnect/answer")
 public class AnswerController {
 
    @Autowired
@@ -61,10 +61,8 @@ public class AnswerController {
    }
 
    @DeleteMapping("/{answer_id}")
-   public void deleteAnswer(@PathVariable Long answer_id) {
-
-      answerService.deleteAnswer(answer_id);
-
+   public ResponseEntity<String> deleteAnswer(@PathVariable Long answer_id) {
+      return ResponseEntity.ok(answerService.deleteAnswer(answer_id));
    }
 
 }

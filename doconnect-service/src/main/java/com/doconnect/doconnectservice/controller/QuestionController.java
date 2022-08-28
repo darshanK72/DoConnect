@@ -21,7 +21,7 @@ import com.doconnect.doconnectservice.services.QuestionServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/question")
+@RequestMapping("/doconnect/question")
 public class QuestionController {
 
     @Autowired

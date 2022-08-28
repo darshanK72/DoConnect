@@ -1,0 +1,30 @@
+.container{
+    margin: 20px;
+    width:20%;
+}
+
+.dashcontainer
+{
+    margin: 0;padding: 0;
+    width: 100%;
+
+}
+
+.users
+{
+    width:80%;
+    margin: 20px;
+}
+
+.margin-left{
+    margin-left: 80px !important;
+}
+.btn
+{
+    margin-right: 50px;
+}
+
+.top
+{
+    margin-bottom: 30px;
+}

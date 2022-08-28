@@ -35,7 +35,7 @@ public class Question {
     @NotBlank
     private String topic;
 
-    private boolean isApproved = false;
+    private boolean isApproved;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
