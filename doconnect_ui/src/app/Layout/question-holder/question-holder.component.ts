@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AnswerServiceService } from 'src/app/Service/answer-service.service';
@@ -10,6 +10,9 @@ import { QuestionServiceService } from 'src/app/Service/question-service.service
   styleUrls: ['./question-holder.component.css']
 })
 export class QuestionHolderComponent implements OnInit {
+
+
+  @Input() query!:string;
 
   questions!:any;
   answers!:any;
@@ -27,6 +30,19 @@ isQuestionAnsId: any;
 
   ngOnInit(): void {
     this.getAllQuestions();
+  }
+
+  onKeyUp(x:any) { // appending the updated value to the variable
+
+    this.message = x.target.value;
+    if(this.message == '')
+    {
+      this.getAllQuestions();
+    }
+    else
+    {
+      this.getAllQueryQuestions(this.message);
+    }
   }
 
   addAnswer(myform:NgForm,question:any)
@@ -107,5 +123,13 @@ isQuestionAnsId: any;
       {
         this.questions = data;
       })
+  }
+
+  getAllQueryQuestions(query:string)
+  {
+    this.questionService.getAllQueryQuestions(query).subscribe(data => {
+      this.questions = data;
+    })
+
   }
 }

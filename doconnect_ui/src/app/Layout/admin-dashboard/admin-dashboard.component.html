@@ -13,8 +13,8 @@
                     {{user.email}} <br>
                 </div>
                 <div class="buttons">
-                    <button class="btn btn-success" (click)="deleteUser(user)">Delete</button>
-                    <button class="btn btn-success" (click)="updateUser(user)">Update</button>
+                    <button class="btn btn-success below" (click)="deleteUser(user)">Delete</button>
+                    <button class="btn btn-success below" (click)="updateUser(user)">Update</button>
                 </div>
             </li>
         </ol>
@@ -24,12 +24,12 @@
             <li class="list-group-item d-flex" *ngFor="let question of questionList">
                 <div class=" me-auto">
                     <div class="fw-bold"> {{question.username}}</div>
-                    {{question.question}} <br>
-                    {{question.descriptionl}} <br>
+                    Question : {{question.question}} <br>
+                    Description : {{question.description}} <br>
                 </div>
                 <div class="buttons">
-                    <button class="btn btn-success" (click)="deleteQuestion(question)">Delete</button>
-                    <button class="btn btn-success" [disabled]="isApprovedQuestoin(question)" (click)="approveQuestion(question)">Approve</button>
+                    <button class="btn btn-success below" (click)="deleteQuestion(question)">Delete</button>
+                    <button class="btn btn-success below" [disabled]="isApprovedQuestoin(question)" (click)="approveQuestion(question)">Approve</button>
                 </div>
             </li>
         </ol>
@@ -39,12 +39,12 @@
             <li class="list-group-item d-flex" *ngFor="let answer of answerList">
                 <div class=" me-auto">
                     <div class="fw-bold"> {{answer.username}}</div>
-                    {{answer.question_id}} <br>
-                    {{answer.answer}} <br>
+                    Question Id : {{answer.question_id}} <br>
+                    Answer : {{answer.answer}} <br>
                 </div>
                 <div class="buttons">
-                    <button class="btn btn-success" (click)="deleteAnswer(answer)">Delete</button>
-                    <button class="btn btn-success"  [disabled]="isApprovedAnswer(answer)"(click)="approveAnswer(answer)">Approve</button>
+                    <button class="btn btn-success below" (click)="deleteAnswer(answer)">Delete</button>
+                    <button class="btn btn-success below"  [disabled]="isApprovedAnswer(answer)"(click)="approveAnswer(answer)">Approve</button>
                 </div>
             </li>
         </ol>

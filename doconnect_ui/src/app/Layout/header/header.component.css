@@ -70,6 +70,7 @@ nav{
     margin-right: 15px;
     padding: 8px 12px;
     border-radius: 25px;
+    position: relative;
 }
 
 .nav-middle .search-box input{

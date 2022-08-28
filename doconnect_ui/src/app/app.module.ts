@@ -20,7 +20,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { AdminDashboardComponent } from './Layout/admin-dashboard/admin-dashboard.component';
 import { UpdateUserComponent } from './Auth/update-user/update-user.component';
 import { ProfileComponent } from './Layout/profile/profile.component';
-
 @NgModule({
   declarations: [
     AppComponent,

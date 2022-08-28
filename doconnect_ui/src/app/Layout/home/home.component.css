@@ -1,11 +1,11 @@
 app-question-holder
 {
     width: 70%;
-    padding: 20px 10px 20px 20px;
+    padding: 0 10px 20px 20px;
 }
 
 app-ask-question
 {
-    width: 30%;
-    padding: 20px 20px 20px 10px;
+    min-width: 30%;
+    padding: 88px 20px 20px 10px;
 }

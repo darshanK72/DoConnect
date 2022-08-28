@@ -15,5 +15,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
   Optional<Question> findById(Long question_id);
   Optional<List<Question>> findAllByUser(User user);
   Optional<List<Question>> findAllByIsApproved(boolean value);
-
+  Optional<List<Question>> findByQuestionContainingIgnoreCase(String query);
+  Optional<List<Question>> findByDescriptionContainingIgnoreCase(String query);
 }

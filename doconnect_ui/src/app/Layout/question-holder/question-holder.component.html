@@ -1,3 +1,7 @@
+<div class="search-box flex-div">
+    <input (keyup)="onKeyUp($event)" type="text" placeholder="Search">
+    <img src="assets/images/search.png">
+  </div>
 <div class="card card-center" *ngFor="let qn of questions">
     <div class="card-header">
         <ul class="nav">

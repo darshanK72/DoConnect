@@ -103,3 +103,26 @@ textarea{
 }
 
 
+.search-box{
+    border:1px solid #ccc;
+    width: 50%;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left: 25%;
+    padding: 8px 12px;
+    border-radius: 25px;
+    justify-content: space-around;
+}
+
+.search-box input{
+    width:100%;
+    border: 0;
+    background:transparent;
+    outline: 0;
+}
+
+.search-box img{
+    width:15px;
+}
+
+

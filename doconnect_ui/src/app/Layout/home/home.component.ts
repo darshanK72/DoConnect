@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +10,10 @@ export class HomeComponent implements OnInit {
   isClickOnAnswer = false;
   constructor() { }
 
+  searchText='';
+  message = '';
   ngOnInit(): void {
+    this.message = this.searchText;
   }
 
   toggleAnswer()
@@ -25,6 +28,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  getQueryQuestions()
+  {
+
+  }
   getAnswers()
   {
     return this.isClickOnAnswer;

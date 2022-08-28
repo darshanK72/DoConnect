@@ -1,13 +1,18 @@
-.container{
-    margin: 20px;
-    width:20%;
-}
-
 .dashcontainer
 {
     margin: 0;padding: 0;
     width: 100%;
 
+}
+
+.container{
+    background-color: white;
+    border: 1px solid rgb(209, 227, 240);
+    padding: 2%;
+    border-radius: 10px;
+    height: fit-content;
+    margin: 20px 0 20px 20px;
+    width: 20%;
 }
 
 .users
@@ -19,9 +24,18 @@
 .margin-left{
     margin-left: 80px !important;
 }
-.btn
+
+.btn.btn-primary.btn-block.top
 {
-    margin-right: 50px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn.btn-success.below
+{
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 .top
