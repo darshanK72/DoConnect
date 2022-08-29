@@ -43,7 +43,7 @@
         <div class="answerqn" *ngIf="yesShowTextbox(qn)">
             <form #myform="ngForm" (ngSubmit)="addAnswer(myform,qn)">
                 <textarea name="message" [(ngModel)]="message" id="" cols="50" rows="3"></textarea>
-                <input type="file" name="image" [(ngModel)]="image" >
+                <input type="file" (change)="fileSelected($event)" >
                 <button class="btn btn-success" type="submit">Submit</button>
             </form>
         </div>

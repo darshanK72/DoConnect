@@ -12,13 +12,12 @@ export class QuestionServiceService {
     // const headers = new HttpHeaders({
     //   Authorization: 'Basic ' + btoa(username + ':' + password),
     // });
-    return this.http.get('http://localhost:8585/doconnect/question/getAllApprovedQuestions', {responseType: 'json'});
+    return this.http.get('http://localhost:8081/doconnect/question/getAllApprovedQuestions', {responseType: 'json'});
   }
 
   getAllQueryQuestions(query:any)
   {
-    return this.http.get('http://localhost:8585/doconnect/question/getAllQuestionByQuery/'+query, {responseType: 'json'});
-
+    return this.http.get('http://localhost:8081/doconnect/question/getAllQuestionByQuery/'+query, {responseType: 'json'});
   }
 
   getQuestionsOfUser(username:any,password:any,user_id:number)

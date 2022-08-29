@@ -21,9 +21,6 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private authService:AuthserviceService,private questionService:QuestionServiceService,private answerService:AnswerServiceService,private toastr:ToastrService,private router:Router) { }
 
   ngOnInit(): void {
-    console.log(
-      "created"
-    )
   }
   getUsers()
   {
@@ -46,6 +43,7 @@ export class AdminDashboardComponent implements OnInit {
       {
         this.router.navigate(['/admin_dashboard']);
         this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
+        this.getUsers();
       })
   }
 
@@ -82,7 +80,7 @@ export class AdminDashboardComponent implements OnInit {
     this.questionService.deleteQuestion(username,password,question).subscribe(data =>
       {
         this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
-        this.ngOnInit();
+        this.getQuestions()
       })
   }
 
@@ -93,7 +91,6 @@ export class AdminDashboardComponent implements OnInit {
     this.questionService.approveQuestion(username,password,question).subscribe(data =>
       {
         this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
-        this.ngOnInit();
         question.approve = true;
       })
   }
@@ -107,6 +104,7 @@ export class AdminDashboardComponent implements OnInit {
       {
         this.ngOnInit();
         this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
+        this.getAnswers();
       });
   }
 
