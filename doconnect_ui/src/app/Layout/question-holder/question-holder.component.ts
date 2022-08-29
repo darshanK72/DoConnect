@@ -18,6 +18,7 @@ export class QuestionHolderComponent implements OnInit {
   answers!:any;
   image!:any;
   message!:any;
+  answerImage!: File;
 
 
   isClickOnAnswer = false;
@@ -30,6 +31,13 @@ isQuestionAnsId: any;
 
   ngOnInit(): void {
     this.getAllQuestions();
+  }
+
+  fileSelected(event: any)
+  {
+    console.log(event);
+    this.answerImage = <File> event.target.files[0];
+    console.log(this.answerImage);
   }
 
   onKeyUp(x:any) { // appending the updated value to the variable
@@ -52,6 +60,14 @@ isQuestionAnsId: any;
       user_id:window.localStorage.getItem("user_id"),
       question_id:question.question_id
     }
+
+    let im = new FormData();
+    im.append("image",this.answerImage,this.answerImage.name)
+
+    this.answerService.addImage(im).subscribe((data:any) => {
+      this.toastr.success(data.message,"Success",{positionClass:'toast-bottom-right'});
+      console.log(data);
+    })
 
     this.answerService.addAnswer(ansObj).subscribe(data =>
       {

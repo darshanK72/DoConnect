@@ -13,7 +13,7 @@ export class AnswerServiceService {
     // const headers = new HttpHeaders({
     //   Authorization: 'Basic ' + btoa(username + ':' + password),
     // });
-    return this.http.get('http://localhost:8585/doconnect/question/getAllApprovedAnswersOfQuestions/' + question.question_id, {responseType: 'json'});
+    return this.http.get('http://localhost:8081/doconnect/question/getAllApprovedAnswersOfQuestions/' + question.question_id, {responseType: 'json'});
   }
 
   getAnswersOfUser(username:any,password:any,user_id:number)
@@ -32,6 +32,18 @@ export class AnswerServiceService {
           Authorization: 'Basic ' + btoa(username + ':' + password),
         });
       return this.http.post('http://localhost:8081/doconnect/answer/addanswer',ansObj, {headers,responseType: 'text'});
+  }
+
+  addImage(image:any)
+  {
+    const username = window.localStorage.getItem("username");
+    const password = window.localStorage.getItem("password");
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
+
+    return this.http.post('http://localhost:8081/doconnect/file/upload',image, {headers,responseType:'json'});
+ 
   }
 
   deleteAnswer(username:any,password:any,answer:any)
