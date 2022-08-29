@@ -29,9 +29,9 @@ export class AskQuestionComponent implements OnInit {
     }
     this.questionService.addQuestion(qnObj).subscribe(data =>
       {
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
       },error =>{
-        this.toastr.error("You are Not Logged In");
+        this.toastr.error("You are Not Logged In","Error",{positionClass:'toast-bottom-right'});
       })
 
       myform.reset();

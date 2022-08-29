@@ -45,7 +45,7 @@ export class AdminDashboardComponent implements OnInit {
     this.authService.deleteUser(username,password,user).subscribe(data =>
       {
         this.router.navigate(['/admin_dashboard']);
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
       })
   }
 
@@ -81,7 +81,7 @@ export class AdminDashboardComponent implements OnInit {
     const password = window.localStorage.getItem("password");
     this.questionService.deleteQuestion(username,password,question).subscribe(data =>
       {
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
         this.ngOnInit();
       })
   }
@@ -92,8 +92,9 @@ export class AdminDashboardComponent implements OnInit {
     const password = window.localStorage.getItem("password");
     this.questionService.approveQuestion(username,password,question).subscribe(data =>
       {
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
         this.ngOnInit();
+        question.approve = true;
       })
   }
 
@@ -105,7 +106,7 @@ export class AdminDashboardComponent implements OnInit {
     this.answerService.deleteAnswer(username,password,answer).subscribe(data =>
       {
         this.ngOnInit();
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
       });
   }
 
@@ -115,8 +116,8 @@ export class AdminDashboardComponent implements OnInit {
     const password = window.localStorage.getItem("password");
     this.answerService.approveAnswer(username,password,answer).subscribe(data =>
       {
-        this.ngOnInit();
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
+        answer.approve = true;
       })
 
   }

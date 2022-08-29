@@ -8,7 +8,7 @@
         <ol class="list-group list-group-numbered">
             <li class="list-group-item d-flex" *ngFor="let user of userList">
                 <div class=" me-auto">
-                    <div class="fw-bold"> {{user.username}}</div>
+                    <div class="detail fw-bold"> {{user.username}}</div>
                     {{user.firstName}} {{user.lastName}} <br>
                     {{user.email}} <br>
                 </div>
@@ -22,7 +22,7 @@
     <div class="users" *ngIf="isClickedOnQuestions">
         <ol class="list-group list-group-numbered">
             <li class="list-group-item d-flex" *ngFor="let question of questionList">
-                <div class=" me-auto">
+                <div class="detail me-auto">
                     <div class="fw-bold"> {{question.username}}</div>
                     Question : {{question.question}} <br>
                     Description : {{question.description}} <br>
@@ -37,7 +37,7 @@
     <div class="users" *ngIf="isClickedOnAnswers">
         <ol class="list-group list-group-numbered">
             <li class="list-group-item d-flex" *ngFor="let answer of answerList">
-                <div class=" me-auto">
+                <div class="detail me-auto">
                     <div class="fw-bold"> {{answer.username}}</div>
                     Question Id : {{answer.question_id}} <br>
                     Answer : {{answer.answer}} <br>

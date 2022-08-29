@@ -60,7 +60,7 @@ export class UpdateUserComponent implements OnInit {
     const username = window.localStorage.getItem("username");
     const password = window.localStorage.getItem("password");
     this.authService.updateUser(username,password,this.user,regObj).subscribe(data => {
-      this.toastr.success(data);
+      this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
       this.router.navigate(['/admin_dashboard']);
     })
 
