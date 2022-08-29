@@ -36,8 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .antMatchers("/doconnect/answer/getall").permitAll()
             .antMatchers("/doconnect/user/register").permitAll()
             .antMatchers("/doconnect/login").permitAll()
-            // .antMatchers("/testchat/**").permitAll()
-            // .antMatchers("/login").permitAll()
             .antMatchers("/doconnect/user/get").hasRole("ADMIN")
             .anyRequest().authenticated().and().httpBasic();
     }

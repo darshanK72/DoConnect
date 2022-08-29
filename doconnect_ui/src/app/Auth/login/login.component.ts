@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("user_id",this.message.user_id);
         window.localStorage.setItem("roles",this.message.roles);
 
-        this.toastr.success("Login Successful!!");
+        this.toastr.success("Login Successful!!","Success",{positionClass:'toast-bottom-right'});
 
         this.router.navigate(["/home"]);
       },error => {
-        this.toastr.error("Some Error Occured!!!");
+        this.toastr.error("Some Error Occured!!!","Error",{positionClass:'toast-bottom-right'});
       })
 
   }

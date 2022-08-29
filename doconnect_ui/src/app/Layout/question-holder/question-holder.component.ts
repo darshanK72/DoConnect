@@ -55,10 +55,10 @@ isQuestionAnsId: any;
 
     this.answerService.addAnswer(ansObj).subscribe(data =>
       {
-        this.toastr.success(data);
+        this.toastr.success(data,"Success",{positionClass:'toast-bottom-right'});
       },error =>
       {
-        this.toastr.error('You are not logged in, Please logged in to answer questions!');
+        this.toastr.error('You are not logged in, Please logged in to answer questions!',"Error",{positionClass:'toast-bottom-right'});
       });
 
       myform.reset();

@@ -6,20 +6,21 @@ project started with entities required
 
 1) spring security
 2) Question and Answer holder
-3) Chat service (almost done)
+3) Chat service backend
 4) Mail Module (Reg, approval)
 5) Admin dashboard
 6) User Profile
+7) Search functionality
 
 
 
 1) Chat service (css)
-
 2) Upload Image (remain)
+3) Api Gateway
 
-3) Search functionality
 
-4) Api Gateway
+29 - upload image,chat service (css), update user (some css), api Gateway css
+30 - ppt,report, 
 
 
     
