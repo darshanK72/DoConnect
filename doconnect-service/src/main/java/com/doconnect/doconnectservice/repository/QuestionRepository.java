@@ -9,6 +9,13 @@ import org.springframework.stereotype.Repository;
 import com.doconnect.doconnectservice.entity.Question;
 import com.doconnect.doconnectservice.entity.User;
 
+/*
+ * @Author : Rahul Chilampande
+ * Created Date : 25-8-2022
+ * Modified Date : 30-8-2022
+ * Description : Question Repository Class
+ */
+
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
