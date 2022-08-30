@@ -6,6 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+ * @Author : Darshan Khairnar
+ * Created Date : 25-8-2022
+ * Modified Date : 26-8-2022
+ * Description : User Dto class
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

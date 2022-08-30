@@ -32,7 +32,7 @@ export class ChatboxComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://localhost:8585/testchat');
+    const socket = new SockJS('http://localhost:9090/testchat');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame: string) {
