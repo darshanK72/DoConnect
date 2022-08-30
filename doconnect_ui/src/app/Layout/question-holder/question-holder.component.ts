@@ -61,13 +61,17 @@ isQuestionAnsId: any;
       question_id:question.question_id
     }
 
-    let im = new FormData();
-    im.append("image",this.answerImage,this.answerImage.name)
+    if(this.answerImage != null)
+    {
+      let im = new FormData();
+      im.append("image",this.answerImage,this.answerImage.name)
+  
+      this.answerService.addImage(im).subscribe((data:any) => {
+        this.toastr.success(data.message,"Success",{positionClass:'toast-bottom-right'});
+        console.log(data);
+      })
 
-    this.answerService.addImage(im).subscribe((data:any) => {
-      this.toastr.success(data.message,"Success",{positionClass:'toast-bottom-right'});
-      console.log(data);
-    })
+    }
 
     this.answerService.addAnswer(ansObj).subscribe(data =>
       {
