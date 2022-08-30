@@ -6,6 +6,12 @@ import javax.validation.Valid;
 
 import com.doconnect.doconnectservice.dto.UserDTO;
 
+
+/*
+ * @Author : Darshan Khairnar
+ * Created Date : 25-8-2022
+ * Modified Date : 28-8-2022
+ */
 public interface UserService {
     
     public List<UserDTO> getAllUsers();
