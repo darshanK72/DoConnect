@@ -6,6 +6,15 @@ import javax.validation.Valid;
 
 import com.doconnect.doconnectservice.dto.AnswerDTO;
 
+/*
+ * @Author : Samarthan Reddy
+ * Created Date : 25-08-2022
+ * Modified Date : 28-08-2022
+ * Description : Provided details of Answers 
+ * Params : None
+ * Return Type : None
+ */
+
 public interface AnswerService {
 
     public String addAnswer(@Valid AnswerDTO answerDTO);

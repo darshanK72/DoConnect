@@ -21,6 +21,16 @@ import com.doconnect.doconnectservice.services.AnswerServiceImpl;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/doconnect/answer")
+
+/*
+ * @Author : Samarthan Reddy
+ * Created Date : 25-08-2022
+ * Modified Date : 28-08-2022
+ * Description : Created answer controller for CRUD mappings
+ * Params : None
+ * Return Type : None
+ */
+
 public class AnswerController {
 
    @Autowired

@@ -22,6 +22,15 @@ import com.doconnect.doconnectservice.repository.AnswerRepository;
 import com.doconnect.doconnectservice.repository.QuestionRepository;
 import com.doconnect.doconnectservice.repository.UserRepository;
 
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Implementation of Answer Service
+     * Params : None
+     * Return Type : None
+  */
+
 @Service
 public class AnswerServiceImpl implements AnswerService {
 
@@ -36,6 +45,15 @@ public class AnswerServiceImpl implements AnswerService {
 
   @Autowired
   EmailSenderService emailSenderService;
+
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : created method for adding of answer
+     * Params : answerDTO
+     * Return Type : String
+   */
 
   public String addAnswer(@Valid AnswerDTO answerDTO) {
     answerRepository.save(this.mapDtoToAnswer(answerDTO));
@@ -54,10 +72,28 @@ public class AnswerServiceImpl implements AnswerService {
     return "Answer Added Successfully";
   }
 
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for getting all answers
+     * Params : None
+     * Return Type : List<AnswerDTO>
+   */
+
   public List<AnswerDTO> getAllAnswers() {
     List<Answer> answerList = this.answerRepository.findAll();
     return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
   }
+
+/*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Getting all answers of questions
+     * Params : question_id
+     * Return Type : List<AnswerDTO>
+   */
 
   public List<AnswerDTO> getAllAnswersOfQuestion(Long question_id) {
     Question question = this.questionRepository.findById(question_id)
@@ -67,6 +103,15 @@ public class AnswerServiceImpl implements AnswerService {
     return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
   }
 
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Getting of answers
+     * Params : answer_id
+     * Return Type : AnswerDTO
+   */
+
   public AnswerDTO getAnswer(Long answer_id) {
     Answer answer = this.answerRepository.findById(answer_id)
         .orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
@@ -74,6 +119,14 @@ public class AnswerServiceImpl implements AnswerService {
     return mapAnswerToDto(answer);
   }
 
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Getting all answers of user
+     * Params : user_id
+     * Return Type : answerList
+   */
 
   public List<AnswerDTO> getAllAnswersOfUser(Long user_id)
     {
@@ -83,7 +136,14 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
 
-  
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for approving the answer
+     * Params : answer_id
+     * Return Type : String
+   */
 
   public String approveAnswer(Long answer_id) {
     Answer answer = this.answerRepository.findById(answer_id)
@@ -93,12 +153,30 @@ public class AnswerServiceImpl implements AnswerService {
     return "Answer Approved";
   }
 
+   /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for getting all approved answers
+     * Params : None
+     * Return Type : List<AnswerDTO>
+   */
+
   public List<AnswerDTO> getAllApprovedAnswer() {
 
     List<Answer> answerList = this.answerRepository.findAllByIsApproved(true).orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
     return answerList.stream().map(this::mapAnswerToDto).collect(Collectors.toList());
 
   }
+
+   /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for mapping Dto to answer
+     * Params : answerDTO
+     * Return Type : answer
+   */
 
   private Answer mapDtoToAnswer(AnswerDTO answerDTO) {
     Answer answer = new Answer();
@@ -116,6 +194,15 @@ public class AnswerServiceImpl implements AnswerService {
     return answer;
   }
 
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for mapping answer to Dto
+     * Params : answer
+     * Return Type : AnswerDTO
+   */
+
   private AnswerDTO mapAnswerToDto(Answer answer) {
 
     AnswerDTO answerDTO = new AnswerDTO();
@@ -130,6 +217,15 @@ public class AnswerServiceImpl implements AnswerService {
 
   }
 
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for deleting answer
+     * Params : answer_id
+     * Return Type : String
+   */
+
   public String deleteAnswer(Long answer_id) {
     Answer answer = answerRepository.findById(answer_id)
         .orElseThrow(() -> new RuntimeException("Error: Answer is not found."));
@@ -139,6 +235,14 @@ public class AnswerServiceImpl implements AnswerService {
     return "Answer deleted succesfully";
 
   }
+    /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for getting all admins 
+     * Params : None
+     * Return Type : List<UserDTO>
+   */
 
   public List<UserDTO> getAllAdmins() {
     List<User> userList = this.userRepository.findAll();
@@ -158,6 +262,15 @@ public class AnswerServiceImpl implements AnswerService {
 
     return adminList;
   }
+
+  /*
+     * @Author : Samarthan Reddy
+     * Created Date : 25-8-2022
+     * Modified Date : 28-8-2022
+     * Description : Created method for mapping user to DTO
+     * Params : user
+     * Return Type : UserDTO
+   */
 
   private UserDTO mapUserToDto(User user) {
     UserDTO userDTO = new UserDTO();

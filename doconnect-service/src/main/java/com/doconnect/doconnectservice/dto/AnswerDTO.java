@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /*
- * @Author : Rahul Chilampande
+ * @Author : Samarthan Reddy
  * Created Date : 25-08-2022
- * Modified Date : 30-08-2022
- * Description : User Dto class
+ * Modified Date : 28-08-2022
+ * Description : Created answer DTO(Data Transfer Object)
  */
 
 @Data
