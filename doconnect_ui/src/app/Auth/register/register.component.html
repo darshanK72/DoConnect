@@ -4,28 +4,34 @@
       <form #myform="ngForm" (ngSubmit)="doRegister(myform)">
         <div class="mb-3">
           <label for="username" class="form-label">User Name</label>
-          <input type="text" name="username" [(ngModel)]="username" class="form-control" />
+          <input type="text" name="username" [(ngModel)]="username" class="form-control" required #name="ngModel"/>
+          <span *ngIf="name.invalid && name.touched" style="color: red;">Enter valid username</span>
         </div>
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" name="firstName" [(ngModel)]="firstName" class="form-control" />
+            <input type="text" name="firstName" [(ngModel)]="firstName" class="form-control" required #fname="ngModel" />
+            <span *ngIf="fname.invalid && fname.touched" style="color: red;">Enter valid firstname</span>
           </div>
           <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" name="lastName" [(ngModel)]="lastName" class="form-control" />
+            <input type="text" name="lastName" [(ngModel)]="lastName" class="form-control" required #lname="ngModel" />
+            <span *ngIf="lname.invalid && lname.touched" style="color: red;">Enter valid lastname</span>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email ID</label>
-            <input type="email" name="email" [(ngModel)]="email" class="form-control" />
+            <input type="email" name="email" email [(ngModel)]="email" class="form-control" required #ema="ngModel" />
+            <span *ngIf="ema.invalid && ema.touched" style="color: red;">Enter valid email</span>
           </div>
 
           <div class="mb-3">
             <label for="phone" class="form-label">Phone Number</label>
-            <input type="text" name="phone" [(ngModel)]="phone" class="form-control" />
+            <input type="text" name="phone" [(ngModel)]="phone" class="form-control" minlength="10" required #phn="ngModel" />
+            <span *ngIf="phn.invalid && phn.touched" style="color: red;">Enter valid phonenumber</span>
           </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" name="password" [(ngModel)]="password" class="form-control" />
+          <input type="password" name="password" [(ngModel)]="password" class="form-control" required #pass="ngModel"/>
+          <span *ngIf="pass.invalid && pass.touched" style="color: red;">Enter valid password</span>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
       </form>
