@@ -3,6 +3,16 @@ package com.doconnect.doconnectservice.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+/*
+ * @Author : Samarthan Reddy
+ * Created Date : 25-08-2022
+ * Modified Date : 28-08-2022
+ * Description : Created answer DTO(Data Transfer Object)
+ * Params : None
+ * Return Type : None
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

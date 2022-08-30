@@ -10,6 +10,14 @@ import com.doconnect.doconnectservice.entity.Answer;
 import com.doconnect.doconnectservice.entity.Question;
 import com.doconnect.doconnectservice.entity.User;
 
+/*
+ * @Author : Samarthan Reddy
+ * Created Date : 25-08-2022
+ * Modified Date : 28-08-2022
+ * Description : Created answer repository 
+ * Params : None
+ * Return Type : None
+ */
 
 @Repository
 public interface AnswerRepository extends JpaRepository<Answer, Long>{
