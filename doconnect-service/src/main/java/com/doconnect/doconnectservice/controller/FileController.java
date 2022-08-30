@@ -16,6 +16,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.doconnect.doconnectservice.dto.FileResponse;
 import com.doconnect.doconnectservice.services.FileService;
 
+/*
+ * @Author : Diwakar Sriram Peddinti
+ * Created Date : 25-8-2022
+ * Modified Date : 29-8-2022
+ * Description : File Controller
+ */
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/doconnect/file")

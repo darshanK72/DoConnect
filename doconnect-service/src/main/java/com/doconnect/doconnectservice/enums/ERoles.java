@@ -1,9 +1,9 @@
 package com.doconnect.doconnectservice.enums;
 
 /*
- * @Author : Darshan Khairnar
+ * @Author : Diwakar Sriram Peddinti
  * Created Date : 25-8-2022
- * Description : Role Enum
+ * Description : Role Enmu
  */
 public enum ERoles {
         ROLE_ADMIN,
