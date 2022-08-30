@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
  * Created Date : 25-08-2022
  * Modified Date : 28-08-2022
  * Description : Created answer DTO(Data Transfer Object)
- * Params : None
- * Return Type : None
  */
 
 @Data

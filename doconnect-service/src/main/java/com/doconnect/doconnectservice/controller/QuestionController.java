@@ -19,6 +19,13 @@ import com.doconnect.doconnectservice.dto.AnswerDTO;
 import com.doconnect.doconnectservice.dto.QuestionDTO;
 import com.doconnect.doconnectservice.services.QuestionServiceImpl;
 
+/*
+ * @Author : Rahul Chilampande
+ * Created Date : 25-08-2022
+ * Modified Date : 30-08-2022
+ * Description : Question Controller
+ */
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/doconnect/question")
