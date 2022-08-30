@@ -13,7 +13,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.doconnect.doconnectservice.services.CustomUserDetailService;
 
-
+/*
+ * @Author : Darshan Khairnar
+ * Created Date : 25-8-2022
+ * Modified Date : 26-8-2022
+ * Description : Web Security Config class, use for configurations and security
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(

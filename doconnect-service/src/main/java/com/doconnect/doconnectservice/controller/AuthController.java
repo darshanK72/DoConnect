@@ -13,6 +13,12 @@ import com.doconnect.doconnectservice.dto.LoginResponse;
 import com.doconnect.doconnectservice.dto.UserDTO;
 import com.doconnect.doconnectservice.services.UserService;
 
+/*
+ * @Author : Diwakar Sriram Peddinti
+ * Created Date : 25-8-2022
+ * Modified Date : 29-8-2022
+ * Description : Auth Controller class
+ */
 @RestController
 @CrossOrigin(origins = "*")
 public class AuthController {

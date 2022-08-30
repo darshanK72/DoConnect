@@ -15,6 +15,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+ * @Author : Diwakar Sriram Peddinti
+ * Created Date : 25-8-2022
+ * Modified Date : 25-8-2022
+ * Description : Role Entity Class
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

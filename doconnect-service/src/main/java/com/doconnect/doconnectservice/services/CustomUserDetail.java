@@ -12,7 +12,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.doconnect.doconnectservice.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+/*
+ * @Author : Darshan Khairnar
+ * Created Date : 25-8-2022
+ * Modified Date : 26-8-2022
+ * Description : Custom User Detail clss implements UserDetails interface
+ */
 public class CustomUserDetail implements UserDetails {
 
     private static final long serialVersionUID = 1L;
