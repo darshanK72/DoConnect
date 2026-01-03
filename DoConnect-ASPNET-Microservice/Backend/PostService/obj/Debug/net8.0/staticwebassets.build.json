@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "UmobOo0u6su1kIJYcBR4ypWC6klbv1z3stmfqi6bV7U=",
+  "Source": "PostService",
+  "BasePath": "_content/PostService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PostService/wwwroot",
+      "Source": "PostService",
+      "ContentRoot": "/home/darshan/SDE/Projects/DoConnect/DoConnect-Microservices/Backend/PostService/wwwroot/",
+      "BasePath": "_content/PostService",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

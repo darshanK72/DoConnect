@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "IdentityService\IdentityService.csproj", "{32A50BAE-C2C1-42B4-ABB1-A4BC03437339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostService", "PostService\PostService.csproj", "{044A6D11-2338-4BF2-B131-9AB18118726F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentService", "CommentService\CommentService.csproj", "{2E524F21-B5E5-4C06-AD07-6FE71AA70046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{3E2A7D27-1A7A-4D98-B9F3-41A32F4D2770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32A50BAE-C2C1-42B4-ABB1-A4BC03437339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A50BAE-C2C1-42B4-ABB1-A4BC03437339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A50BAE-C2C1-42B4-ABB1-A4BC03437339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A50BAE-C2C1-42B4-ABB1-A4BC03437339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044A6D11-2338-4BF2-B131-9AB18118726F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044A6D11-2338-4BF2-B131-9AB18118726F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044A6D11-2338-4BF2-B131-9AB18118726F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044A6D11-2338-4BF2-B131-9AB18118726F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E524F21-B5E5-4C06-AD07-6FE71AA70046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E524F21-B5E5-4C06-AD07-6FE71AA70046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E524F21-B5E5-4C06-AD07-6FE71AA70046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E524F21-B5E5-4C06-AD07-6FE71AA70046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E2A7D27-1A7A-4D98-B9F3-41A32F4D2770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E2A7D27-1A7A-4D98-B9F3-41A32F4D2770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E2A7D27-1A7A-4D98-B9F3-41A32F4D2770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E2A7D27-1A7A-4D98-B9F3-41A32F4D2770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

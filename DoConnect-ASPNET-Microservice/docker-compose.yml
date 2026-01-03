@@ -1,0 +1,62 @@
+version: "3.4"
+
+services:
+  identity-service:
+    build:
+      context: ./Backend
+      dockerfile: IdentityService/Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-server;Database=doconnect;User ID=sa;Password=Darshan@123;TrustServerCertificate=True;
+
+  post-service:
+    build:
+      context: ./Backend
+      dockerfile: PostService/Dockerfile
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-server;Database=doconnect;User ID=sa;Password=Darshan@123;TrustServerCertificate=True;
+
+  comment-service:
+    build:
+      context: ./Backend
+      dockerfile: CommentService/Dockerfile
+    ports:
+      - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-server;Database=doconnect;User ID=sa;Password=Darshan@123;TrustServerCertificate=True;
+
+  gateway:
+    build:
+      context: ./Backend
+      dockerfile: Gateway/Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - identity-service
+      - post-service
+      - comment-service
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - gateway
+
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Darshan@123
+    ports:
+      - "1433:1443"
